@@ -1,575 +1,1012 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>T-Shirt Designs | Splatter Graphics</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-        html {
-            scroll-behavior: smooth;
-        }
+  <meta
+    name="description"
+    content="Splatter Graphics — Graphic Design, Branding, Posters, Logos, Brochures and Digital Creative Work."
+  >
 
-        body {
-            background: #030712;
-            color: #fff;
-            font-family: 'Inter', sans-serif;
-            min-height: 100vh;
-        }
+  <meta
+    name="author"
+    content="Splatter Graphics"
+  >
 
-        body::before {
-            content: "";
-            position: fixed;
-            width: 500px;
-            height: 500px;
-            top: -200px;
-            left: -150px;
-            background: rgba(40, 130, 255, 0.08);
-            filter: blur(120px);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: -1;
-        }
+  <title>
+    Splatter Graphics | Graphic Designer & Digital Creative
+  </title>
 
-        body::after {
-            content: "";
-            position: fixed;
-            width: 500px;
-            height: 500px;
-            right: -200px;
-            bottom: -200px;
-            background: rgba(0, 220, 255, 0.06);
-            filter: blur(120px);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: -1;
-        }
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="style.css">
 
-        header {
-            width: 100%;
-            padding: 28px 6%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-            background: rgba(3,7,18,0.85);
-            backdrop-filter: blur(15px);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 
-        .logo {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.35rem;
-            font-weight: 800;
-            letter-spacing: 2px;
-        }
+  <!-- GSAP ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
-        .logo span {
-            color: #42d9ff;
-        }
-
-        .back-btn {
-            color: #fff;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 600;
-            padding: 10px 18px;
-            border: 1px solid rgba(66,217,255,0.35);
-            border-radius: 10px;
-            transition: 0.3s ease;
-        }
-
-        .back-btn:hover {
-            background: rgba(66,217,255,0.1);
-            border-color: #42d9ff;
-            transform: translateY(-2px);
-        }
-
-        .hero {
-            text-align: center;
-            padding: 90px 20px 60px;
-        }
-
-        .hero-label {
-            font-family: 'Orbitron', sans-serif;
-            color: #42d9ff;
-            font-size: 0.8rem;
-            letter-spacing: 4px;
-            font-weight: 700;
-            margin-bottom: 18px;
-        }
-
-        .hero h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: clamp(2.5rem, 7vw, 5.5rem);
-            line-height: 1;
-            letter-spacing: 3px;
-            margin-bottom: 20px;
-        }
-
-        .hero h1 span {
-            color: #42d9ff;
-        }
-
-        .hero p {
-            max-width: 650px;
-            margin: auto;
-            color: rgba(255,255,255,0.6);
-            line-height: 1.7;
-            font-size: 1rem;
-        }
-
-        .gallery {
-            width: 90%;
-            max-width: 1450px;
-            margin: 0 auto 100px;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 28px;
-        }
-
-        .card {
-            position: relative;
-            background: rgba(255,255,255,0.025);
-            border: 1px solid rgba(66,217,255,0.18);
-            border-radius: 18px;
-            padding: 12px;
-            overflow: hidden;
-            transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
-            cursor: pointer;
-        }
-
-        .card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(66,217,255,0.65);
-            box-shadow:
-                0 20px 50px rgba(0,0,0,0.45),
-                0 0 30px rgba(66,217,255,0.08);
-        }
-
-        .image-wrap {
-            width: 100%;
-            aspect-ratio: 3 / 4;
-            overflow: hidden;
-            border-radius: 12px;
-            background: #0a1020;
-        }
-
-        .image-wrap img {
-            width: 100%;
-            height: 100%;
-            display: block;
-            object-fit: cover;
-            object-position: center;
-            transition: transform 0.6s ease;
-        }
-
-        .card:hover .image-wrap img {
-            transform: scale(1.04);
-        }
-
-        .card-info {
-            padding: 16px 8px 8px;
-        }
-
-        .number {
-            display: block;
-            color: #42d9ff;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            margin-bottom: 7px;
-        }
-
-        .card-title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1rem;
-            font-weight: 600;
-            color: #fff;
-        }
-
-        .modal {
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.92);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 30px;
-            opacity: 0;
-            visibility: hidden;
-            transition: 0.3s ease;
-            z-index: 999;
-        }
-
-        .modal.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .modal img {
-            max-width: 90vw;
-            max-height: 90vh;
-            border-radius: 15px;
-            box-shadow: 0 30px 80px rgba(0,0,0,0.7);
-        }
-
-        .close {
-            position: absolute;
-            top: 25px;
-            right: 30px;
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            border: 1px solid rgba(255,255,255,0.25);
-            background: rgba(255,255,255,0.08);
-            color: #fff;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        @media (max-width: 1000px) {
-            .gallery {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 600px) {
-            header {
-                padding: 20px 5%;
-            }
-
-            .logo {
-                font-size: 1rem;
-            }
-
-            .back-btn {
-                font-size: 0.75rem;
-                padding: 8px 12px;
-            }
-
-            .hero {
-                padding: 65px 20px 45px;
-            }
-
-            .gallery {
-                width: 92%;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 14px;
-            }
-
-            .card {
-                padding: 8px;
-                border-radius: 13px;
-            }
-
-            .card-info {
-                padding: 12px 4px 5px;
-            }
-
-            .card-title {
-                font-size: 0.72rem;
-            }
-
-            .number {
-                font-size: 0.55rem;
-            }
-        }
-    </style>
 </head>
+
 
 <body>
 
-<header>
+
+  <!-- =====================================================
+       NAVBAR
+  ====================================================== -->
+
+  <nav class="navbar">
+
     <div class="logo">
-        SPLATTER <span>GRAPHICS</span>
+      Splatter Graphics
     </div>
 
-    <a href="../index.html" class="back-btn">
-        ← Back to Portfolio
-    </a>
-</header>
 
-<section class="hero">
-    <div class="hero-label">OUR COLLECTION</div>
+    <ul class="nav-links">
 
-    <h1>
-        T-SHIRT <span>DESIGNS</span>
-    </h1>
+      <li>
+        <a href="#home">Home</a>
+      </li>
 
-    <p>
-        A collection of creative, bold and expressive T-shirt designs
-        crafted by Splatter Graphics.
-    </p>
-</section>
+      <li>
+        <a href="#about">About</a>
+      </li>
 
-<main class="gallery">
+      <li>
+        <a href="#services">Services</a>
+      </li>
 
-    <!-- 01 -->
-    <div class="card" onclick="openModal('nagavelly.png.png')">
-        <div class="image-wrap">
-            <img src="nagavelly.png.png" alt="Nagavalli">
-        </div>
-        <div class="card-info">
-            <span class="number">01</span>
-            <div class="card-title">Nagavalli</div>
-        </div>
+      <li>
+        <a href="#projects">Work</a>
+      </li>
+
+      <li>
+        <a href="#contact">Contact</a>
+      </li>
+
+    </ul>
+
+
+    <!-- Mobile Menu Button -->
+
+    <div class="hamburger">
+
+      <span></span>
+      <span></span>
+      <span></span>
+
     </div>
 
-    <!-- 02 -->
-    <div class="card" onclick="openModal('onam.png.png')">
-        <div class="image-wrap">
-            <img src="onam.png.png" alt="Onam">
+  </nav>
+
+
+
+  <!-- =====================================================
+       BACKGROUND
+  ====================================================== -->
+
+  <div class="mesh-bg">
+
+    <div class="mesh-blob mesh-1"></div>
+    <div class="mesh-blob mesh-2"></div>
+    <div class="mesh-blob mesh-3"></div>
+    <div class="mesh-blob mesh-4"></div>
+
+  </div>
+
+
+
+  <!-- =====================================================
+       MAIN WRAPPER
+  ====================================================== -->
+
+  <div class="main-wrapper">
+
+
+
+    <!-- =================================================
+         HERO / HOME
+    ================================================== -->
+
+    <section
+      id="home"
+      class="split-home"
+    >
+
+
+      <!-- LEFT SIDE : PROFILE IMAGE -->
+
+      <div class="home-left">
+
+        <div class="profile-frame">
+
+          <img
+            src="profile.jpg.jpg"
+            alt="Splatter Graphics - Graphic Designer"
+            class="profile-image"
+          >
+
         </div>
-        <div class="card-info">
-            <span class="number">02</span>
-            <div class="card-title">Onam</div>
+
+      </div>
+
+
+
+      <!-- RIGHT SIDE : INTRODUCTION -->
+
+      <div class="home-right">
+
+
+        <span class="hero-small-text">
+          GRAPHIC DESIGNER • DIGITAL MARKETER
+        </span>
+
+
+        <h1>
+
+          I Create
+          <br>
+
+          Visuals That
+          <br>
+
+          <span>
+            Stand Out.
+          </span>
+
+        </h1>
+
+
+        <h3 class="brand-name">
+          Splatter Graphics
+        </h3>
+
+
+        <p class="hero-description">
+
+          Creative graphic design, branding and digital
+          visuals designed to give your ideas a strong
+          visual identity.
+
+        </p>
+
+
+
+        <!-- HERO BUTTONS -->
+
+        <div class="hero-buttons">
+
+
+          <a
+            href="#projects"
+            class="hero-btn primary-btn"
+          >
+            View My Work
+          </a>
+
+
+          <a
+            href="#contact"
+            class="hero-btn secondary-btn"
+          >
+            Let's Work Together
+          </a>
+
+
         </div>
+
+
+      </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         ABOUT
+    ================================================== -->
+
+    <section id="about">
+
+
+      <span class="section-label">
+        ABOUT ME
+      </span>
+
+
+      <div class="about-card">
+
+
+        <p>
+
+          I'm a freelance graphic designer focused on
+          creating modern, meaningful and visually strong
+          designs for brands, businesses and individuals.
+
+        </p>
+
+
+        <p>
+
+          From logo identities and posters to brochures,
+          social media creatives, banners and merchandise,
+          I enjoy turning ideas into designs that communicate
+          clearly and leave a lasting impression.
+
+        </p>
+
+
+        <p>
+
+          Through Splatter Graphics, I work on creative
+          projects with a focus on clean layouts, strong
+          typography, visual consistency and memorable
+          branding.
+
+        </p>
+
+
+      </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         SERVICES
+    ================================================== -->
+
+    <section id="services">
+
+
+      <span class="section-label">
+        WHAT I DO
+      </span>
+
+
+      <h2>
+        My Services
+      </h2>
+
+
+      <p class="section-description">
+
+        Creative design solutions for brands,
+        businesses and digital platforms.
+
+      </p>
+
+
+
+      <div class="services-container">
+
+
+        <!-- SERVICE 01 -->
+
+        <div class="service-card">
+
+          <div class="service-number">
+            01
+          </div>
+
+          <h3>
+            Logo & Brand Identity
+          </h3>
+
+          <p>
+
+            Modern logos and visual identities designed
+            to make brands recognizable and memorable.
+
+          </p>
+
+        </div>
+
+
+
+        <!-- SERVICE 02 -->
+
+        <div class="service-card">
+
+          <div class="service-number">
+            02
+          </div>
+
+          <h3>
+            Poster Design
+          </h3>
+
+          <p>
+
+            Eye-catching promotional posters for events,
+            businesses, campaigns and social media.
+
+          </p>
+
+        </div>
+
+
+
+        <!-- SERVICE 03 -->
+
+        <div class="service-card">
+
+          <div class="service-number">
+            03
+          </div>
+
+          <h3>
+            Social Media Design
+          </h3>
+
+          <p>
+
+            Creative social media visuals that help
+            businesses communicate and attract attention.
+
+          </p>
+
+        </div>
+
+
+
+        <!-- SERVICE 04 -->
+
+        <div class="service-card">
+
+          <div class="service-number">
+            04
+          </div>
+
+          <h3>
+            Brochure & Flyer
+          </h3>
+
+          <p>
+
+            Clean and professional layouts for brochures,
+            flyers, menus and promotional materials.
+
+          </p>
+
+        </div>
+
+
+
+        <!-- SERVICE 05 -->
+
+        <div class="service-card">
+
+          <div class="service-number">
+            05
+          </div>
+
+          <h3>
+            Banner & Flex Design
+          </h3>
+
+          <p>
+
+            Large-format designs created for shops,
+            events, promotions and outdoor advertising.
+
+          </p>
+
+        </div>
+
+
+
+        <!-- SERVICE 06 -->
+
+        <div class="service-card">
+
+          <div class="service-number">
+            06
+          </div>
+
+          <h3>
+            T-Shirt Design
+          </h3>
+
+          <p>
+
+            Creative typography and graphic concepts
+            designed for apparel and merchandise.
+
+          </p>
+
+        </div>
+
+
+      </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         PROJECTS / WORK
+    ================================================== -->
+
+    <section id="projects">
+
+
+      <span class="section-label">
+        SELECTED WORK
+      </span>
+
+
+      <h2>
+        My Projects
+      </h2>
+
+
+      <p class="section-description">
+
+        A selection of creative work across branding,
+        print design and visual communication.
+
+      </p>
+
+
+
+      <div class="card-container">
+
+
+
+        <!-- PROJECT 01 -->
+
+        <a
+          href="Logos/index.html"
+          class="card-link"
+        >
+
+          <div
+            class="card"
+            data-color="#ff0055"
+            data-image="https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=800&q=80"
+          >
+
+            <div class="puzzle-box"></div>
+
+
+            <div class="card-content">
+
+              <span class="project-number">
+                01
+              </span>
+
+              <h3>
+                Logo Design
+              </h3>
+
+              <p>
+                Minimalist & Luxury Brands
+              </p>
+
+            </div>
+
+          </div>
+
+        </a>
+
+
+
+        <!-- PROJECT 02 -->
+
+        <a
+          href="project-2.html"
+          class="card-link"
+        >
+
+          <div
+            class="card"
+            data-color="#8a2be2"
+            data-image="https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=800&q=80"
+          >
+
+            <div class="puzzle-box"></div>
+
+
+            <div class="card-content">
+
+              <span class="project-number">
+                02
+              </span>
+
+              <h3>
+                Poster Design
+              </h3>
+
+              <p>
+                Promotional & Creative Posters
+              </p>
+
+            </div>
+
+          </div>
+
+        </a>
+
+
+
+        <!-- PROJECT 03 -->
+
+        <a
+          href="T-SHIRTS/index.html"
+          class="card-link"
+        >
+
+          <div
+            class="card"
+            data-color="#6B8E23"
+            data-image="https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=800&q=80"
+          >
+
+            <div class="puzzle-box"></div>
+
+
+            <div class="card-content">
+
+              <span class="project-number">
+                03
+              </span>
+
+              <h3>
+                T-Shirt Design
+              </h3>
+
+              <p>
+                Typography & Apparel Graphics
+              </p>
+
+            </div>
+
+          </div>
+
+        </a>
+
+
+      </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         SKILLS
+    ================================================== -->
+
+    <section id="skills">
+
+
+      <span class="section-label">
+        MY TOOLKIT
+      </span>
+
+
+      <h2>
+        Tools I Use
+      </h2>
+
+
+      <p class="section-description">
+
+        Tools that help me turn ideas into finished
+        visual designs.
+
+      </p>
+
+
+
+      <div class="skills-container">
+
+
+        <div class="skill-item">
+          <span>Adobe Photoshop</span>
+        </div>
+
+
+        <div class="skill-item">
+          <span>Adobe Illustrator</span>
+        </div>
+
+
+        <div class="skill-item">
+          <span>Adobe InDesign</span>
+        </div>
+
+
+        <div class="skill-item">
+          <span>Figma</span>
+        </div>
+
+
+        <div class="skill-item">
+          <span>Canva</span>
+        </div>
+
+
+        <div class="skill-item">
+          <span>Microsoft Office</span>
+        </div>
+
+
+      </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         CREATIVE PROCESS
+    ================================================== -->
+
+    <section id="process">
+
+
+      <span class="section-label">
+        HOW I WORK
+      </span>
+
+
+      <h2>
+        My Creative Process
+      </h2>
+
+
+
+      <div class="process-container">
+
+
+        <div class="process-step">
+
+          <span>
+            01
+          </span>
+
+          <h3>
+            Discover
+          </h3>
+
+          <p>
+            Understand the idea, audience and
+            project goals.
+          </p>
+
+        </div>
+
+
+
+        <div class="process-step">
+
+          <span>
+            02
+          </span>
+
+          <h3>
+            Concept
+          </h3>
+
+          <p>
+            Develop visual directions and
+            creative concepts.
+          </p>
+
+        </div>
+
+
+
+        <div class="process-step">
+
+          <span>
+            03
+          </span>
+
+          <h3>
+            Design
+          </h3>
+
+          <p>
+            Turn the selected concept into
+            a polished design.
+          </p>
+
+        </div>
+
+
+
+        <div class="process-step">
+
+          <span>
+            04
+          </span>
+
+          <h3>
+            Refine
+          </h3>
+
+          <p>
+            Review details and improve the
+            final visual.
+          </p>
+
+        </div>
+
+
+
+        <div class="process-step">
+
+          <span>
+            05
+          </span>
+
+          <h3>
+            Deliver
+          </h3>
+
+          <p>
+            Prepare and deliver the final
+            design files.
+          </p>
+
+        </div>
+
+
+      </div>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         CONTACT
+    ================================================== -->
+
+    <section id="contact">
+
+
+      <span class="section-label">
+        GET IN TOUCH
+      </span>
+
+
+      <h2>
+        Let's Create Something Together
+      </h2>
+
+
+      <p class="section-description">
+
+        Have a project in mind? Tell me about it
+        and let's bring your idea to life.
+
+      </p>
+
+
+
+      <div class="contact-wrapper">
+
+
+        <!-- CONTACT FORM -->
+
+        <form
+          class="contact-form"
+          action="https://formspree.io/f/xwlprdqa"
+          method="POST"
+        >
+
+
+          <div class="input-group">
+
+            <input
+              type="text"
+              name="name"
+              placeholder="Your Name"
+              required
+            >
+
+          </div>
+
+
+
+          <div class="input-group">
+
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              required
+            >
+
+          </div>
+
+
+
+          <div class="input-group">
+
+            <input
+              type="tel"
+              name="phone"
+              placeholder="Your Phone Number"
+              required
+            >
+
+          </div>
+
+
+
+          <div class="input-group">
+
+            <textarea
+              name="message"
+              placeholder="Tell me about your project..."
+              rows="5"
+              required
+            ></textarea>
+
+          </div>
+
+
+
+          <button
+            type="submit"
+            class="submit-btn"
+          >
+
+            Send Message
+
+          </button>
+
+
+        </form>
+
+
+
+        <!-- CONTACT INFORMATION -->
+
+        <div class="contact-info">
+
+
+          <!-- EMAIL -->
+
+          <div class="info-item">
+
+            <span class="info-label">
+              Email
+            </span>
+
+            <a href="mailto:splattergraphics111@gmail.com">
+              splattergraphics111@gmail.com
+            </a>
+
+          </div>
+
+
+
+          <!-- PHONE -->
+
+          <div class="info-item">
+
+            <span class="info-label">
+              Phone
+            </span>
+
+            <a href="tel:+918714594021">
+              +91 87145 94021
+            </a>
+
+          </div>
+
+
+
+          <!-- INSTAGRAM -->
+
+          <div class="info-item">
+
+            <span class="info-label">
+              Instagram
+            </span>
+
+            <a
+              href="https://www.instagram.com/splattergraphics"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+
+              @splattergraphics
+
+            </a>
+
+          </div>
+
+
+
+          <!-- PERSONAL INSTAGRAM -->
+
+          <div class="info-item">
+
+            <span class="info-label">
+              Personal Instagram
+            </span>
+
+            <a
+              href="https://www.instagram.com/i_br_u__s.g"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+
+              @i_br_u__s.g
+
+            </a>
+
+          </div>
+
+
+        </div>
+
+
+      </div>
+
+
+    </section>
+
+
+  </div>
+
+
+
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+
+  <footer>
+
+    <div class="footer-content">
+
+
+      <div class="footer-brand">
+        Splatter Graphics
+      </div>
+
+
+      <p>
+        Graphic Design • Branding • Digital Creative
+      </p>
+
+
+      <p class="copyright">
+        © 2026 Splatter Graphics. All Rights Reserved.
+      </p>
+
+
     </div>
 
-    <!-- 03 -->
-    <div class="card" onclick="openModal('cruzados.png.png')">
-        <div class="image-wrap">
-            <img src="cruzados.png.png" alt="Cruzados">
-        </div>
-        <div class="card-info">
-            <span class="number">03</span>
-            <div class="card-title">Cruzados</div>
-        </div>
-    </div>
+  </footer>
 
-    <!-- 04 -->
-    <div class="card" onclick="openModal('the-god-father.png.png')">
-        <div class="image-wrap">
-            <img src="the-god-father.png.png" alt="God Father">
-        </div>
-        <div class="card-info">
-            <span class="number">04</span>
-            <div class="card-title">God Father</div>
-        </div>
-    </div>
 
-    <!-- 05 -->
-    <div class="card" onclick="openModal('mangalashery-neelakandan.png.png')">
-        <div class="image-wrap">
-            <img src="mangalashery-neelakandan.png.png" alt="Neelakandante Paattalam">
-        </div>
-        <div class="card-info">
-            <span class="number">05</span>
-            <div class="card-title">Neelakandante Paattalam</div>
-        </div>
-    </div>
 
-    <!-- 06 -->
-    <div class="card" onclick="openModal('i-need-more-space.png.png')">
-        <div class="image-wrap">
-            <img src="i-need-more-space.png.png" alt="I Need More Space">
-        </div>
-        <div class="card-info">
-            <span class="number">06</span>
-            <div class="card-title">I Need More Space</div>
-        </div>
-    </div>
+  <!-- =====================================================
+       JAVASCRIPT
+  ====================================================== -->
 
-    <!-- 07 -->
-    <div class="card" onclick="openModal('only-you.png.png')">
-        <div class="image-wrap">
-            <img src="only-you.png.png" alt="Only You">
-        </div>
-        <div class="card-info">
-            <span class="number">07</span>
-            <div class="card-title">Only You</div>
-        </div>
-    </div>
+  <script src="script.js"></script>
 
-    <!-- 08 -->
-    <div class="card" onclick="openModal('wanna-be-yours.png.png')">
-        <div class="image-wrap">
-            <img src="wanna-be-yours.png.png" alt="Wanna Be Yours">
-        </div>
-        <div class="card-info">
-            <span class="number">08</span>
-            <div class="card-title">Wanna Be Yours</div>
-        </div>
-    </div>
-
-    <!-- 09 -->
-    <div class="card" onclick="openModal('never-luck.png.png')">
-        <div class="image-wrap">
-            <img src="never-luck.png.png" alt="Never Luck">
-        </div>
-        <div class="card-info">
-            <span class="number">09</span>
-            <div class="card-title">Never Luck</div>
-        </div>
-    </div>
-
-    <!-- 10 -->
-    <div class="card" onclick="openModal('spider-man.jpg.png')">
-        <div class="image-wrap">
-            <img src="spider-man.jpg.png" alt="Spider Man">
-        </div>
-        <div class="card-info">
-            <span class="number">10</span>
-            <div class="card-title">Spider Man</div>
-        </div>
-    </div>
-
-    <!-- 11 -->
-    <div class="card" onclick="openModal('payippadans.png.png')">
-        <div class="image-wrap">
-            <img src="payippadans.png.png" alt="PAYIPPADAN">
-        </div>
-        <div class="card-info">
-            <span class="number">11</span>
-            <div class="card-title">PAYIPPADAN</div>
-        </div>
-    </div>
-
-    <!-- 12 -->
-    <div class="card" onclick="openModal('with-her.png.png')">
-        <div class="image-wrap">
-            <img src="with-her.png.png" alt="With Her">
-        </div>
-        <div class="card-info">
-            <span class="number">12</span>
-            <div class="card-title">With Her</div>
-        </div>
-    </div>
-
-    <!-- 13 -->
-    <div class="card" onclick="openModal('lahel-vakkachan.png.png')">
-        <div class="image-wrap">
-            <img src="lahel-vakkachan.png.png" alt="Lahel Vakkachan">
-        </div>
-        <div class="card-info">
-            <span class="number">13</span>
-            <div class="card-title">Lahel Vakkachan</div>
-        </div>
-    </div>
-
-    <!-- 14 -->
-    <div class="card" onclick="openModal('sagar-alias-jacky.jpg.png')">
-        <div class="image-wrap">
-            <img src="sagar-alias-jacky.jpg.png" alt="Sagar Alias Jacky">
-        </div>
-        <div class="card-info">
-            <span class="number">14</span>
-            <div class="card-title">Sagar ALIAS JACKY</div>
-        </div>
-    </div>
-
-    <!-- 15 -->
-    <div class="card" onclick="openModal('dodge.jpg.jpg')">
-        <div class="image-wrap">
-            <img src="dodge.jpg.jpg" alt="Dodge">
-        </div>
-        <div class="card-info">
-            <span class="number">15</span>
-            <div class="card-title">Dodge</div>
-        </div>
-    </div>
-
-    <!-- 16 -->
-    <div class="card" onclick="openModal('mani.jpg.png')">
-        <div class="image-wrap">
-            <img src="mani.jpg.png" alt="Inspector NADESHAN">
-        </div>
-        <div class="card-info">
-            <span class="number">16</span>
-            <div class="card-title">Inspector NADESHAN</div>
-        </div>
-    </div>
-
-    <!-- 17 -->
-    <div class="card" onclick="openModal('cant.png.png')">
-        <div class="image-wrap">
-            <img src="cant.png.png" alt="Stay Strong">
-        </div>
-        <div class="card-info">
-            <span class="number">17</span>
-            <div class="card-title">Stay Strong</div>
-        </div>
-    </div>
-
-    <!-- 18 -->
-    <div class="card" onclick="openModal('dream.png.png')">
-        <div class="image-wrap">
-            <img src="dream.png.png" alt="Dream">
-        </div>
-        <div class="card-info">
-            <span class="number">18</span>
-            <div class="card-title">Dream</div>
-        </div>
-    </div>
-
-    <!-- 19 -->
-    <div class="card" onclick="openModal('keep-moving.png.png')">
-        <div class="image-wrap">
-            <img src="keep-moving.png.png" alt="Keep Moving">
-        </div>
-        <div class="card-info">
-            <span class="number">19</span>
-            <div class="card-title">Keep Moving</div>
-        </div>
-    </div>
-
-    <!-- 20 -->
-    <div class="card" onclick="openModal('money.png.png')">
-        <div class="image-wrap">
-            <img src="money.png.png" alt="Money">
-        </div>
-        <div class="card-info">
-            <span class="number">20</span>
-            <div class="card-title">Money</div>
-        </div>
-    </div>
-
-</main>
-
-<div class="modal" id="imageModal" onclick="closeModal(event)">
-    <button class="close" onclick="closeModal()">×</button>
-    <img id="modalImage" src="" alt="T-Shirt Design">
-</div>
-
-<script>
-    function openModal(image) {
-        const modal = document.getElementById("imageModal");
-        const modalImage = document.getElementById("modalImage");
-
-        modalImage.src = image;
-        modal.classList.add("active");
-    }
-
-    function closeModal(event) {
-        if (
-            !event ||
-            event.target.id === "imageModal" ||
-            event.target.classList.contains("close")
-        ) {
-            document.getElementById("imageModal").classList.remove("active");
-        }
-    }
-
-    document.addEventListener("keydown", function(event) {
-        if (event.key === "Escape") {
-            document.getElementById("imageModal").classList.remove("active");
-        }
-    });
-</script>
 
 </body>
+
 </html>
