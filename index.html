@@ -3,12 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>T-Shirt Designs | Splatter Graphics</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
@@ -24,12 +22,11 @@
 
         body {
             background: #030712;
-            color: #ffffff;
+            color: #fff;
             font-family: 'Inter', sans-serif;
             min-height: 100vh;
         }
 
-        /* Background Glow */
         body::before {
             content: "";
             position: fixed;
@@ -58,7 +55,6 @@
             z-index: -1;
         }
 
-        /* Header */
         header {
             width: 100%;
             padding: 28px 6%;
@@ -85,7 +81,7 @@
         }
 
         .back-btn {
-            color: #ffffff;
+            color: #fff;
             text-decoration: none;
             font-size: 0.9rem;
             font-weight: 600;
@@ -101,7 +97,6 @@
             transform: translateY(-2px);
         }
 
-        /* Hero */
         .hero {
             text-align: center;
             padding: 90px 20px 60px;
@@ -136,7 +131,6 @@
             font-size: 1rem;
         }
 
-        /* Gallery */
         .gallery {
             width: 90%;
             max-width: 1450px;
@@ -204,10 +198,9 @@
             font-family: 'Orbitron', sans-serif;
             font-size: 1rem;
             font-weight: 600;
-            color: #ffffff;
+            color: #fff;
         }
 
-        /* Modal */
         .modal {
             position: fixed;
             inset: 0;
@@ -243,21 +236,18 @@
             border-radius: 50%;
             border: 1px solid rgba(255,255,255,0.25);
             background: rgba(255,255,255,0.08);
-            color: #ffffff;
+            color: #fff;
             font-size: 1.5rem;
             cursor: pointer;
         }
 
-        /* Tablet */
         @media (max-width: 1000px) {
             .gallery {
                 grid-template-columns: repeat(2, 1fr);
             }
         }
 
-        /* Mobile */
         @media (max-width: 600px) {
-
             header {
                 padding: 20px 5%;
             }
@@ -303,319 +293,283 @@
 
 <body>
 
-    <!-- HEADER -->
-    <header>
-        <div class="logo">
-            SPLATTER <span>GRAPHICS</span>
-        </div>
-
-        <a href="../index.html" class="back-btn">
-            ← Back to Portfolio
-        </a>
-    </header>
-
-
-    <!-- HERO -->
-    <section class="hero">
-
-        <div class="hero-label">
-            OUR COLLECTION
-        </div>
-
-        <h1>
-            T-SHIRT <span>DESIGNS</span>
-        </h1>
-
-        <p>
-            A collection of creative, bold and expressive T-shirt designs
-            crafted by Splatter Graphics.
-        </p>
-
-    </section>
-
-
-    <!-- GALLERY -->
-    <main class="gallery">
-
-        <!-- 01 -->
-        <div class="card" onclick="openModal('nagavally.png')">
-            <div class="image-wrap">
-                <img src="nagavally.png" alt="Nagavalli">
-            </div>
-            <div class="card-info">
-                <span class="number">01</span>
-                <div class="card-title">Nagavalli</div>
-            </div>
-        </div>
-
-
-        <!-- 02 -->
-        <div class="card" onclick="openModal('onam.png')">
-            <div class="image-wrap">
-                <img src="onam.png" alt="Onam">
-            </div>
-            <div class="card-info">
-                <span class="number">02</span>
-                <div class="card-title">Onam</div>
-            </div>
-        </div>
-
-
-        <!-- 03 -->
-        <div class="card" onclick="openModal('cruzados.png')">
-            <div class="image-wrap">
-                <img src="cruzados.png" alt="Cruzados">
-            </div>
-            <div class="card-info">
-                <span class="number">03</span>
-                <div class="card-title">Cruzados</div>
-            </div>
-        </div>
-
-
-        <!-- 04 -->
-        <div class="card" onclick="openModal('the-god-father.png')">
-            <div class="image-wrap">
-                <img src="the-god-father.png" alt="God Father">
-            </div>
-            <div class="card-info">
-                <span class="number">04</span>
-                <div class="card-title">God Father</div>
-            </div>
-        </div>
-
-
-        <!-- 05 -->
-        <div class="card" onclick="openModal('mangalashery-neelakandante.png')">
-            <div class="image-wrap">
-                <img src="mangalashery-neelakandante.png" alt="Neelakandante Paattalam">
-            </div>
-            <div class="card-info">
-                <span class="number">05</span>
-                <div class="card-title">Neelakandante Paattalam</div>
-            </div>
-        </div>
-
-
-        <!-- 06 -->
-        <div class="card" onclick="openModal('i-need-more-space.png')">
-            <div class="image-wrap">
-                <img src="i-need-more-space.png" alt="I Need More Space">
-            </div>
-            <div class="card-info">
-                <span class="number">06</span>
-                <div class="card-title">I Need More Space</div>
-            </div>
-        </div>
-
-
-        <!-- 07 -->
-        <div class="card" onclick="openModal('only-you.png')">
-            <div class="image-wrap">
-                <img src="only-you.png" alt="Only You">
-            </div>
-            <div class="card-info">
-                <span class="number">07</span>
-                <div class="card-title">Only You</div>
-            </div>
-        </div>
-
-
-        <!-- 08 -->
-        <div class="card" onclick="openModal('wanna-be-yours.png')">
-            <div class="image-wrap">
-                <img src="wanna-be-yours.png" alt="Wanna Be Yours">
-            </div>
-            <div class="card-info">
-                <span class="number">08</span>
-                <div class="card-title">Wanna Be Yours</div>
-            </div>
-        </div>
-
-
-        <!-- 09 -->
-        <div class="card" onclick="openModal('never-luck.png')">
-            <div class="image-wrap">
-                <img src="never-luck.png" alt="Never Luck">
-            </div>
-            <div class="card-info">
-                <span class="number">09</span>
-                <div class="card-title">Never Luck</div>
-            </div>
-        </div>
-
-
-        <!-- 10 -->
-        <div class="card" onclick="openModal('spider-man.jpg')">
-            <div class="image-wrap">
-                <img src="spider-man.jpg" alt="Spider Man">
-            </div>
-            <div class="card-info">
-                <span class="number">10</span>
-                <div class="card-title">Spider Man</div>
-            </div>
-        </div>
-
-
-        <!-- 11 -->
-        <div class="card" onclick="openModal('payippadans.png')">
-            <div class="image-wrap">
-                <img src="payippadans.png" alt="PAYIPPADAN">
-            </div>
-            <div class="card-info">
-                <span class="number">11</span>
-                <div class="card-title">PAYIPPADAN</div>
-            </div>
-        </div>
-
-
-        <!-- 12 -->
-        <div class="card" onclick="openModal('with-her.png')">
-            <div class="image-wrap">
-                <img src="with-her.png" alt="With Her">
-            </div>
-            <div class="card-info">
-                <span class="number">12</span>
-                <div class="card-title">With Her</div>
-            </div>
-        </div>
-
-
-        <!-- 13 -->
-        <div class="card" onclick="openModal('lahel-vakkachan.png')">
-            <div class="image-wrap">
-                <img src="lahel-vakkachan.png" alt="Lahel Vakkachan">
-            </div>
-            <div class="card-info">
-                <span class="number">13</span>
-                <div class="card-title">Lahel Vakkachan</div>
-            </div>
-        </div>
-
-
-        <!-- 14 -->
-        <div class="card" onclick="openModal('sagar-alias-jacky.jpg')">
-            <div class="image-wrap">
-                <img src="sagar-alias-jacky.jpg" alt="Sagar Alias Jacky">
-            </div>
-            <div class="card-info">
-                <span class="number">14</span>
-                <div class="card-title">Sagar ALIAS JACKY</div>
-            </div>
-        </div>
-
-
-        <!-- 15 -->
-        <div class="card" onclick="openModal('dodge.jpg')">
-            <div class="image-wrap">
-                <img src="dodge.jpg" alt="Dodge">
-            </div>
-            <div class="card-info">
-                <span class="number">15</span>
-                <div class="card-title">Dodge</div>
-            </div>
-        </div>
-
-
-        <!-- 16 -->
-        <div class="card" onclick="openModal('mani.jpg')">
-            <div class="image-wrap">
-                <img src="mani.jpg" alt="Inspector NADESHAN">
-            </div>
-            <div class="card-info">
-                <span class="number">16</span>
-                <div class="card-title">Inspector NADESHAN</div>
-            </div>
-        </div>
-
-
-        <!-- 17 -->
-        <div class="card" onclick="openModal('cant.png')">
-            <div class="image-wrap">
-                <img src="cant.png" alt="Stay Strong">
-            </div>
-            <div class="card-info">
-                <span class="number">17</span>
-                <div class="card-title">Stay Strong</div>
-            </div>
-        </div>
-
-
-        <!-- 18 -->
-        <div class="card" onclick="openModal('dream.png')">
-            <div class="image-wrap">
-                <img src="dream.png" alt="Dream">
-            </div>
-            <div class="card-info">
-                <span class="number">18</span>
-                <div class="card-title">Dream</div>
-            </div>
-        </div>
-
-
-        <!-- 19 -->
-        <div class="card" onclick="openModal('keep-moving.png')">
-            <div class="image-wrap">
-                <img src="keep-moving.png" alt="Keep Moving">
-            </div>
-            <div class="card-info">
-                <span class="number">19</span>
-                <div class="card-title">Keep Moving</div>
-            </div>
-        </div>
-
-
-        <!-- 20 -->
-        <div class="card" onclick="openModal('money.png')">
-            <div class="image-wrap">
-                <img src="money.png" alt="Money">
-            </div>
-            <div class="card-info">
-                <span class="number">20</span>
-                <div class="card-title">Money</div>
-            </div>
-        </div>
-
-    </main>
-
-
-    <!-- IMAGE MODAL -->
-    <div class="modal" id="imageModal" onclick="closeModal(event)">
-
-        <button class="close" onclick="closeModal()">
-            ×
-        </button>
-
-        <img id="modalImage" src="" alt="T-Shirt Design">
-
+<header>
+    <div class="logo">
+        SPLATTER <span>GRAPHICS</span>
     </div>
 
+    <a href="../index.html" class="back-btn">
+        ← Back to Portfolio
+    </a>
+</header>
 
-    <script>
-        function openModal(image) {
-            const modal = document.getElementById("imageModal");
-            const modalImage = document.getElementById("modalImage");
+<section class="hero">
+    <div class="hero-label">OUR COLLECTION</div>
 
-            modalImage.src = image;
-            modal.classList.add("active");
+    <h1>
+        T-SHIRT <span>DESIGNS</span>
+    </h1>
+
+    <p>
+        A collection of creative, bold and expressive T-shirt designs
+        crafted by Splatter Graphics.
+    </p>
+</section>
+
+<main class="gallery">
+
+    <!-- 01 -->
+    <div class="card" onclick="openModal('nagavelly.png.png')">
+        <div class="image-wrap">
+            <img src="nagavelly.png.png" alt="Nagavalli">
+        </div>
+        <div class="card-info">
+            <span class="number">01</span>
+            <div class="card-title">Nagavalli</div>
+        </div>
+    </div>
+
+    <!-- 02 -->
+    <div class="card" onclick="openModal('onam.png.png')">
+        <div class="image-wrap">
+            <img src="onam.png.png" alt="Onam">
+        </div>
+        <div class="card-info">
+            <span class="number">02</span>
+            <div class="card-title">Onam</div>
+        </div>
+    </div>
+
+    <!-- 03 -->
+    <div class="card" onclick="openModal('cruzados.png.png')">
+        <div class="image-wrap">
+            <img src="cruzados.png.png" alt="Cruzados">
+        </div>
+        <div class="card-info">
+            <span class="number">03</span>
+            <div class="card-title">Cruzados</div>
+        </div>
+    </div>
+
+    <!-- 04 -->
+    <div class="card" onclick="openModal('the-god-father.png.png')">
+        <div class="image-wrap">
+            <img src="the-god-father.png.png" alt="God Father">
+        </div>
+        <div class="card-info">
+            <span class="number">04</span>
+            <div class="card-title">God Father</div>
+        </div>
+    </div>
+
+    <!-- 05 -->
+    <div class="card" onclick="openModal('mangalashery-neelakandan.png.png')">
+        <div class="image-wrap">
+            <img src="mangalashery-neelakandan.png.png" alt="Neelakandante Paattalam">
+        </div>
+        <div class="card-info">
+            <span class="number">05</span>
+            <div class="card-title">Neelakandante Paattalam</div>
+        </div>
+    </div>
+
+    <!-- 06 -->
+    <div class="card" onclick="openModal('i-need-more-space.png.png')">
+        <div class="image-wrap">
+            <img src="i-need-more-space.png.png" alt="I Need More Space">
+        </div>
+        <div class="card-info">
+            <span class="number">06</span>
+            <div class="card-title">I Need More Space</div>
+        </div>
+    </div>
+
+    <!-- 07 -->
+    <div class="card" onclick="openModal('only-you.png.png')">
+        <div class="image-wrap">
+            <img src="only-you.png.png" alt="Only You">
+        </div>
+        <div class="card-info">
+            <span class="number">07</span>
+            <div class="card-title">Only You</div>
+        </div>
+    </div>
+
+    <!-- 08 -->
+    <div class="card" onclick="openModal('wanna-be-yours.png.png')">
+        <div class="image-wrap">
+            <img src="wanna-be-yours.png.png" alt="Wanna Be Yours">
+        </div>
+        <div class="card-info">
+            <span class="number">08</span>
+            <div class="card-title">Wanna Be Yours</div>
+        </div>
+    </div>
+
+    <!-- 09 -->
+    <div class="card" onclick="openModal('never-luck.png.png')">
+        <div class="image-wrap">
+            <img src="never-luck.png.png" alt="Never Luck">
+        </div>
+        <div class="card-info">
+            <span class="number">09</span>
+            <div class="card-title">Never Luck</div>
+        </div>
+    </div>
+
+    <!-- 10 -->
+    <div class="card" onclick="openModal('spider-man.jpg.png')">
+        <div class="image-wrap">
+            <img src="spider-man.jpg.png" alt="Spider Man">
+        </div>
+        <div class="card-info">
+            <span class="number">10</span>
+            <div class="card-title">Spider Man</div>
+        </div>
+    </div>
+
+    <!-- 11 -->
+    <div class="card" onclick="openModal('payippadans.png.png')">
+        <div class="image-wrap">
+            <img src="payippadans.png.png" alt="PAYIPPADAN">
+        </div>
+        <div class="card-info">
+            <span class="number">11</span>
+            <div class="card-title">PAYIPPADAN</div>
+        </div>
+    </div>
+
+    <!-- 12 -->
+    <div class="card" onclick="openModal('with-her.png.png')">
+        <div class="image-wrap">
+            <img src="with-her.png.png" alt="With Her">
+        </div>
+        <div class="card-info">
+            <span class="number">12</span>
+            <div class="card-title">With Her</div>
+        </div>
+    </div>
+
+    <!-- 13 -->
+    <div class="card" onclick="openModal('lahel-vakkachan.png.png')">
+        <div class="image-wrap">
+            <img src="lahel-vakkachan.png.png" alt="Lahel Vakkachan">
+        </div>
+        <div class="card-info">
+            <span class="number">13</span>
+            <div class="card-title">Lahel Vakkachan</div>
+        </div>
+    </div>
+
+    <!-- 14 -->
+    <div class="card" onclick="openModal('sagar-alias-jacky.jpg.png')">
+        <div class="image-wrap">
+            <img src="sagar-alias-jacky.jpg.png" alt="Sagar Alias Jacky">
+        </div>
+        <div class="card-info">
+            <span class="number">14</span>
+            <div class="card-title">Sagar ALIAS JACKY</div>
+        </div>
+    </div>
+
+    <!-- 15 -->
+    <div class="card" onclick="openModal('dodge.jpg.jpg')">
+        <div class="image-wrap">
+            <img src="dodge.jpg.jpg" alt="Dodge">
+        </div>
+        <div class="card-info">
+            <span class="number">15</span>
+            <div class="card-title">Dodge</div>
+        </div>
+    </div>
+
+    <!-- 16 -->
+    <div class="card" onclick="openModal('mani.jpg.png')">
+        <div class="image-wrap">
+            <img src="mani.jpg.png" alt="Inspector NADESHAN">
+        </div>
+        <div class="card-info">
+            <span class="number">16</span>
+            <div class="card-title">Inspector NADESHAN</div>
+        </div>
+    </div>
+
+    <!-- 17 -->
+    <div class="card" onclick="openModal('cant.png.png')">
+        <div class="image-wrap">
+            <img src="cant.png.png" alt="Stay Strong">
+        </div>
+        <div class="card-info">
+            <span class="number">17</span>
+            <div class="card-title">Stay Strong</div>
+        </div>
+    </div>
+
+    <!-- 18 -->
+    <div class="card" onclick="openModal('dream.png.png')">
+        <div class="image-wrap">
+            <img src="dream.png.png" alt="Dream">
+        </div>
+        <div class="card-info">
+            <span class="number">18</span>
+            <div class="card-title">Dream</div>
+        </div>
+    </div>
+
+    <!-- 19 -->
+    <div class="card" onclick="openModal('keep-moving.png.png')">
+        <div class="image-wrap">
+            <img src="keep-moving.png.png" alt="Keep Moving">
+        </div>
+        <div class="card-info">
+            <span class="number">19</span>
+            <div class="card-title">Keep Moving</div>
+        </div>
+    </div>
+
+    <!-- 20 -->
+    <div class="card" onclick="openModal('money.png.png')">
+        <div class="image-wrap">
+            <img src="money.png.png" alt="Money">
+        </div>
+        <div class="card-info">
+            <span class="number">20</span>
+            <div class="card-title">Money</div>
+        </div>
+    </div>
+
+</main>
+
+<div class="modal" id="imageModal" onclick="closeModal(event)">
+    <button class="close" onclick="closeModal()">×</button>
+    <img id="modalImage" src="" alt="T-Shirt Design">
+</div>
+
+<script>
+    function openModal(image) {
+        const modal = document.getElementById("imageModal");
+        const modalImage = document.getElementById("modalImage");
+
+        modalImage.src = image;
+        modal.classList.add("active");
+    }
+
+    function closeModal(event) {
+        if (
+            !event ||
+            event.target.id === "imageModal" ||
+            event.target.classList.contains("close")
+        ) {
+            document.getElementById("imageModal").classList.remove("active");
         }
+    }
 
-        function closeModal(event) {
-            if (
-                !event ||
-                event.target.id === "imageModal" ||
-                event.target.classList.contains("close")
-            ) {
-                document.getElementById("imageModal").classList.remove("active");
-            }
+    document.addEventListener("keydown", function(event) {
+        if (event.key === "Escape") {
+            document.getElementById("imageModal").classList.remove("active");
         }
-
-        document.addEventListener("keydown", function(event) {
-            if (event.key === "Escape") {
-                document.getElementById("imageModal").classList.remove("active");
-            }
-        });
-    </script>
+    });
+</script>
 
 </body>
 </html>
