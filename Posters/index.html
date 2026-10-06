@@ -1,1 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Poster Designs | Splatter Graphics</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #030712;
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        /* BACK BUTTON */
+        .top-bar {
+            padding: 25px 6%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand {
+            font-size: 1.3rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: #ffffff;
+        }
+
+        .brand span {
+            color: #42d9ff;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 12px 22px;
+            border: 1px solid #42d9ff;
+            border-radius: 30px;
+            color: #42d9ff;
+            text-decoration: none;
+            font-weight: 700;
+            transition: 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: #42d9ff;
+            color: #030712;
+            box-shadow: 0 0 25px rgba(66, 217, 255, 0.45);
+        }
+
+        /* HEADER */
+        .header {
+            text-align: center;
+            padding: 55px 20px 45px;
+        }
+
+        .small-title {
+            color: #42d9ff;
+            font-size: 0.9rem;
+            font-weight: 800;
+            letter-spacing: 5px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .header h1 {
+            font-size: clamp(2.2rem, 6vw, 4.5rem);
+            font-weight: 900;
+            letter-spacing: 2px;
+        }
+
+        .header p {
+            margin-top: 15px;
+            color: #9ca3af;
+            font-size: 1rem;
+        }
+
+        /* GALLERY */
+        .gallery {
+            width: 88%;
+            max-width: 1400px;
+            margin: 0 auto 80px;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.035);
+            border: 1px solid rgba(66, 217, 255, 0.18);
+            border-radius: 22px;
+            overflow: hidden;
+            cursor: pointer;
+
+            transition:
+                transform 0.4s ease,
+                border-color 0.4s ease,
+                box-shadow 0.4s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            border-color: #42d9ff;
+            box-shadow:
+                0 15px 40px rgba(0, 0, 0, 0.55),
+                0 0 30px rgba(66, 217, 255, 0.12);
+        }
+
+        .image-box {
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            background: #0b1224;
+            overflow: hidden;
+        }
+
+        .image-box img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .image-box img {
+            transform: scale(1.04);
+        }
+
+        .project-info {
+            padding: 18px 20px 21px;
+        }
+
+        .project-number {
+            color: #42d9ff;
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 7px;
+        }
+
+        .project-info h2 {
+            font-size: 1.25rem;
+            margin-bottom: 6px;
+        }
+
+        .project-info p {
+            color: #42d9ff;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+        }
+
+        /* MODAL */
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.94);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 30px;
+            z-index: 9999;
+
+            opacity: 0;
+            visibility: hidden;
+            transition: 0.3s ease;
+        }
+
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal img {
+            max-width: 92vw;
+            max-height: 90vh;
+
+            object-fit: contain;
+
+            border-radius: 10px;
+            box-shadow: 0 0 50px rgba(66, 217, 255, 0.15);
+
+            transform: scale(0.9);
+            transition: 0.3s ease;
+        }
+
+        .modal.active img {
+            transform: scale(1);
+        }
+
+        .close {
+            position: fixed;
+            top: 22px;
+            right: 28px;
+
+            width: 48px;
+            height: 48px;
+
+            border: 1px solid #42d9ff;
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            color: #42d9ff;
+            font-size: 30px;
+            cursor: pointer;
+
+            transition: 0.3s ease;
+            z-index: 10000;
+        }
+
+        .close:hover {
+            background: #42d9ff;
+            color: #030712;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 30px 20px 45px;
+            color: #6b7280;
+            font-size: 0.85rem;
+        }
+
+        footer span {
+            color: #42d9ff;
+        }
+
+        /* TABLET */
+        @media (max-width: 950px) {
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+                width: 90%;
+            }
+        }
+
+        /* MOBILE */
+        @media (max-width: 600px) {
+
+            .top-bar {
+                padding: 18px 5%;
+            }
+
+            .brand {
+                font-size: 1rem;
+            }
+
+            .back-btn {
+                padding: 9px 15px;
+                font-size: 0.8rem;
+            }
+
+            .header {
+                padding: 35px 15px 30px;
+            }
+
+            .small-title {
+                font-size: 0.75rem;
+                letter-spacing: 3px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .header p {
+                font-size: 0.85rem;
+            }
+
+            .gallery {
+                width: 92%;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 14px;
+            }
+
+            .project-card {
+                border-radius: 14px;
+            }
+
+            .project-info {
+                padding: 12px;
+            }
+
+            .project-info h2 {
+                font-size: 0.95rem;
+            }
+
+            .project-info p {
+                font-size: 0.6rem;
+            }
+
+            .project-number {
+                font-size: 0.6rem;
+            }
+
+            .modal {
+                padding: 15px;
+            }
+
+            .modal img {
+                max-width: 96vw;
+                max-height: 85vh;
+            }
+
+            .close {
+                width: 42px;
+                height: 42px;
+                right: 15px;
+                top: 15px;
+                font-size: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- TOP BAR -->
+    <div class="top-bar">
+
+        <div class="brand">
+            SPLATTER <span>GRAPHICS</span>
+        </div>
+
+        <a
+            href="https://splattergraphics0-bot.github.io/SG-PORTFOLIO/index.html"
+            class="back-btn"
+        >
+            ← Back to Portfolio
+        </a>
+
+    </div>
+
+
+    <!-- HEADER -->
+    <header class="header">
+
+        <div class="small-title">
+            OUR COLLECTION
+        </div>
+
+        <h1>
+            POSTER DESIGNS
+        </h1>
+
+        <p>
+            Creative posters designed by Splatter Graphics
+        </p>
+
+    </header>
+
+
+    <!-- POSTER GALLERY -->
+    <main class="gallery">
+
+
+        <!-- 01 ZAM ZAM WOOD -->
+        <div class="project-card" onclick="openModal(this)">
+
+            <div class="image-box">
+                <img
+                    src="./zam-zam-wood.jpeg.jpeg"
+                    alt="Zam Zam Wood Industries"
+                >
+            </div>
+
+            <div class="project-info">
+                <div class="project-number">01</div>
+                <h2>Zam Zam Wood</h2>
+                <p>POSTER DESIGN</p>
+            </div>
+
+        </div>
+
+
+        <!-- 02 SG POSTER -->
+        <div class="project-card" onclick="openModal(this)">
+
+            <div class="image-box">
+                <img
+                    src="./sg.png.png"
+                    alt="Splatter Graphics Poster"
+                >
+            </div>
+
+            <div class="project-info">
+                <div class="project-number">02</div>
+                <h2>Splatter Graphics</h2>
+                <p>POSTER DESIGN</p>
+            </div>
+
+        </div>
+
+
+        <!-- 03 VISHU -->
+        <div class="project-card" onclick="openModal(this)">
+
+            <div class="image-box">
+                <img
+                    src="./vishu.jpeg.jpeg"
+                    alt="Vishu Poster"
+                >
+            </div>
+
+            <div class="project-info">
+                <div class="project-number">03</div>
+                <h2>Vishu</h2>
+                <p>POSTER DESIGN</p>
+            </div>
+
+        </div>
+
+
+        <!-- 04 CRAFTY BY IRFUU -->
+        <div class="project-card" onclick="openModal(this)">
+
+            <div class="image-box">
+                <img
+                    src="./crafty-by-irfuu.jpeg.jpeg"
+                    alt="Crafty by Irfuu"
+                >
+            </div>
+
+            <div class="project-info">
+                <div class="project-number">04</div>
+                <h2>Crafty By Irfuu</h2>
+                <p>POSTER DESIGN</p>
+            </div>
+
+        </div>
+
+
+        <!-- 05 AKBAR TRAVELS -->
+        <div class="project-card" onclick="openModal(this)">
+
+            <div class="image-box">
+                <img
+                    src="./akbar-travels.jpeg.jpeg"
+                    alt="Akbar Travels"
+                >
+            </div>
+
+            <div class="project-info">
+                <div class="project-number">05</div>
+                <h2>Akbar Travels</h2>
+                <p>POSTER DESIGN</p>
+            </div>
+
+        </div>
+
+
+        <!-- 06 WORLD ENVIRONMENT DAY -->
+        <div class="project-card" onclick="openModal(this)">
+
+            <div class="image-box">
+                <img
+                    src="./world-environmental-day.jpeg.jpeg"
+                    alt="World Environment Day"
+                >
+            </div>
+
+            <div class="project-info">
+                <div class="project-number">06</div>
+                <h2>World Environment Day</h2>
+                <p>POSTER DESIGN</p>
+            </div>
+
+        </div>
+
+
+        <!-- 07 EID MUBARAK -->
+        <div class="project-card" onclick="openModal(this)">
+
+            <div class="image-box">
+                <img
+                    src="./eid-mubarak.jpeg.jpeg"
+                    alt="Eid Mubarak"
+                >
+            </div>
+
+            <div class="project-info">
+                <div class="project-number">07</div>
+                <h2>Eid Mubarak</h2>
+                <p>POSTER DESIGN</p>
+            </div>
+
+        </div>
+
+
+        <!-- 08 INDEPENDENCE DAY -->
+        <div class="project-card" onclick="openModal(this)">
+
+            <div class="image-box">
+                <img
+                    src="./independence-day.jpeg.jpeg"
+                    alt="Independence Day"
+                >
+            </div>
+
+            <div class="project-info">
+                <div class="project-number">08</div>
+                <h2>Independence Day</h2>
+                <p>POSTER DESIGN</p>
+            </div>
+
+        </div>
+
+
+        <!-- 09 NABI DINAM -->
+        <div class="project-card" onclick="openModal(this)">
+
+            <div class="image-box">
+                <img
+                    src="./nabidinam.jpeg.jpeg"
+                    alt="Nabi Dinam"
+                >
+            </div>
+
+            <div class="project-info">
+                <div class="project-number">09</div>
+                <h2>Nabi Dinam</h2>
+                <p>POSTER DESIGN</p>
+            </div>
+
+        </div>
+
+
+        <!-- 10 WEDDING CARD -->
+        <div class="project-card" onclick="openModal(this)">
+
+            <div class="image-box">
+                <img
+                    src="./wedding-card.jpeg.jpeg"
+                    alt="Wedding Invitation"
+                >
+            </div>
+
+            <div class="project-info">
+                <div class="project-number">10</div>
+                <h2>Wedding Invitation</h2>
+                <p>POSTER DESIGN</p>
+            </div>
+
+        </div>
+
+
+        <!-- 11 WORLD ARABIC DAY -->
+        <div class="project-card" onclick="openModal(this)">
+
+            <div class="image-box">
+                <img
+                    src="./world-arabic-day.jpeg.jpeg"
+                    alt="World Arabic Day"
+                >
+            </div>
+
+            <div class="project-info">
+                <div class="project-number">11</div>
+                <h2>World Arabic Day</h2>
+                <p>POSTER DESIGN</p>
+            </div>
+
+        </div>
+
+
+        <!-- 12 FIT HRAH / ARABIC POSTER -->
+        <div class="project-card" onclick="openModal(this)">
+
+            <div class="image-box">
+                <img
+                    src="./arabic-day.jpeg.jpeg"
+                    alt="Arabic Poster"
+                >
+            </div>
+
+            <div class="project-info">
+                <div class="project-number">12</div>
+                <h2>Arabic Design</h2>
+                <p>POSTER DESIGN</p>
+            </div>
+
+        </div>
+
+
+    </main>
+
+
+    <!-- IMAGE MODAL -->
+    <div
+        class="modal"
+        id="imageModal"
+        onclick="closeModal(event)"
+    >
+
+        <div
+            class="close"
+            onclick="closeModal(event)"
+        >
+            ×
+        </div>
+
+        <img
+            id="modalImage"
+            src=""
+            alt=""
+        >
+
+    </div>
+
+
+    <!-- FOOTER -->
+    <footer>
+        © 2026 <span>Splatter Graphics</span> — All Rights Reserved.
+    </footer>
+
+
+    <script>
+
+        function openModal(card) {
+
+            const image = card.querySelector("img");
+
+            const modal = document.getElementById("imageModal");
+
+            const modalImage =
+                document.getElementById("modalImage");
+
+            modalImage.src = image.src;
+
+            modalImage.alt = image.alt;
+
+            modal.classList.add("active");
+
+            document.body.style.overflow = "hidden";
+        }
+
+
+        function closeModal(event) {
+
+            const modal =
+                document.getElementById("imageModal");
+
+            if (
+                event &&
+                event.target !== modal &&
+                !event.target.classList.contains("close")
+            ) {
+                return;
+            }
+
+            modal.classList.remove("active");
+
+            document.body.style.overflow = "";
+        }
+
+
+        document.addEventListener(
+            "keydown",
+            function(event) {
+
+                if (event.key === "Escape") {
+
+                    document
+                        .getElementById("imageModal")
+                        .classList.remove("active");
+
+                    document.body.style.overflow = "";
+                }
+
+            }
+        );
+
+    </script>
+
+</body>
+</html>
