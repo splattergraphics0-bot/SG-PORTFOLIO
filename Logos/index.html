@@ -1,1 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Splatter Graphics | Logo Design</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #030712;
+            color: white;
+            font-family: Arial, sans-serif;
+            padding: 50px 30px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: auto;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 42px;
+            margin-bottom: 50px;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(66, 217, 255, 0.25);
+            border-radius: 20px;
+            padding: 18px;
+            overflow: hidden;
+            transition: 0.35s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px);
+            border-color: #42d9ff;
+            box-shadow: 0 15px 40px rgba(66, 217, 255, 0.15);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 330px;
+            object-fit: cover;
+            display: block;
+            border-radius: 15px;
+            background: #0b1224;
+        }
+
+        .project-card h2 {
+            margin: 20px 0 8px;
+            font-size: 22px;
+        }
+
+        .project-card p {
+            margin: 0;
+            color: #42d9ff;
+            font-size: 14px;
+        }
+
+        @media (max-width: 1000px) {
+            .project-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 30px 15px;
+            }
+
+            h1 {
+                font-size: 30px;
+                margin-bottom: 35px;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-card img {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Logo Design Projects</h1>
+
+    <div class="project-grid">
+
+        <!-- 01 -->
+        <div class="project-card">
+            <img src="./splatter-logo-mockup.png.png.png"
+                 alt="Splatter Graphics">
+            <h2>Splatter Graphics</h2>
+            <p>Logo Design</p>
+        </div>
+
+        <!-- 02 -->
+        <div class="project-card">
+            <img src="./chill-spot.png.png.png"
+                 alt="Chill Spot">
+            <h2>Chill Spot</h2>
+            <p>Logo Design</p>
+        </div>
+
+        <!-- 03 -->
+        <div class="project-card">
+            <img src="./books-to-you.png.png.png"
+                 alt="Books To You">
+            <h2>Books To You</h2>
+            <p>Logo Design</p>
+        </div>
+
+        <!-- 04 -->
+        <div class="project-card">
+            <img src="./tomorrow-tech.png.png.png"
+                 alt="Tomorrow Tech">
+            <h2>Tomorrow Tech</h2>
+            <p>Logo Design</p>
+        </div>
+
+        <!-- 05 -->
+        <div class="project-card">
+            <img src="./savash.png.png.png"
+                 alt="Savash">
+            <h2>Savash</h2>
+            <p>Logo Design</p>
+        </div>
+
+        <!-- 06 -->
+        <div class="project-card">
+            <img src="./al-misry.png.png.png"
+                 alt="Al Misry">
+            <h2>Al Misry</h2>
+            <p>Logo Design</p>
+        </div>
+
+        <!-- 07 -->
+        <div class="project-card">
+            <img src="./riwaya.png.png.png"
+                 alt="Riwaya">
+            <h2>Riwaya</h2>
+            <p>Logo Design</p>
+        </div>
+
+        <!-- 08 -->
+        <div class="project-card">
+            <img src="./thohur.png.png.png"
+                 alt="Thohur">
+            <h2>Thohur</h2>
+            <p>Logo Design</p>
+        </div>
+
+        <!-- 09 -->
+        <div class="project-card">
+            <img src="./trojan.jpg.jpg.jpg"
+                 alt="Trojan">
+            <h2>Trojan</h2>
+            <p>Logo Design</p>
+        </div>
+
+        <!-- 10 -->
+        <div class="project-card">
+            <img src="./stockage.png.png.png"
+                 alt="Stockage">
+            <h2>Stockage</h2>
+            <p>Logo Design</p>
+        </div>
+
+        <!-- 11 -->
+        <div class="project-card">
+            <img src="./zar-jewells.jpeg.jpeg.jpeg"
+                 alt="Zar Jewells">
+            <h2>Zar Jewells</h2>
+            <p>Logo Design</p>
+        </div>
+
+        <!-- 12 -->
+        <div class="project-card">
+            <img src="./ilham.png.png.png"
+                 alt="Ilham">
+            <h2>Ilham</h2>
+            <p>Logo Design</p>
+        </div>
+
+        <!-- 13 -->
+        <div class="project-card">
+            <img src="./aziyyys-henna-gallery.png.png"
+                 alt="Aziyyy's Henna Gallery">
+            <h2>Aziyyy's Henna Gallery</h2>
+            <p>Logo Design</p>
+        </div>
+
+        <!-- 14 -->
+        <div class="project-card">
+            <img src="./nimath.jpg.png"
+                 alt="Ni'math Gold and Diamonds">
+            <h2>Ni'math Gold and Diamonds</h2>
+            <p>Brand Identity</p>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

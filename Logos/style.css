@@ -1,0 +1,54 @@
+/* ===== LOGO CARDS FIX ===== */
+
+.project-card {
+    width: 100%;
+    max-width: 360px;
+    overflow: hidden;
+}
+
+.project-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    border-radius: 12px;
+}
+
+/* Keep cards neat */
+.project-card h2,
+.project-card p {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .project-card {
+        max-width: 100%;
+    }
+
+    .project-card img {
+        height: 200px;
+    }
+}
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+    width: 100%;
+}
+
+.project-card {
+    width: 100%;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.project-card img {
+    width: 100%;
+    height: 330px;
+    min-width: 0;
+    object-fit: cover;
+    display: block;
+    border-radius: 15px;
+}
