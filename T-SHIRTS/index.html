@@ -9,439 +9,217 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700;800&display=swap"
-        rel="stylesheet"
-    >
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Orbitron:wght@500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        :root {
-            --bg: #030712;
-            --card: #0a1222;
-            --blue: #42d9ff;
-            --blue2: #168cff;
-            --white: #ffffff;
-            --muted: #8b9bb4;
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            background:
-                radial-gradient(
-                    circle at 10% 10%,
-                    rgba(66, 217, 255, 0.08),
-                    transparent 30%
-                ),
-                radial-gradient(
-                    circle at 90% 80%,
-                    rgba(22, 140, 255, 0.08),
-                    transparent 30%
-                ),
-                var(--bg);
-
-            color: var(--white);
+            background: #030712;
+            color: #ffffff;
             font-family: 'Inter', sans-serif;
             min-height: 100vh;
-            overflow-x: hidden;
         }
 
-        /* =========================
-           HEADER
-        ========================== */
+        /* Background Glow */
+        body::before {
+            content: "";
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            top: -200px;
+            left: -150px;
+            background: rgba(40, 130, 255, 0.08);
+            filter: blur(120px);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1;
+        }
 
+        body::after {
+            content: "";
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            right: -200px;
+            bottom: -200px;
+            background: rgba(0, 220, 255, 0.06);
+            filter: blur(120px);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Header */
         header {
             width: 100%;
             padding: 28px 6%;
-
             display: flex;
-            justify-content: space-between;
             align-items: center;
-
+            justify-content: space-between;
             border-bottom: 1px solid rgba(255,255,255,0.08);
-
+            background: rgba(3,7,18,0.85);
+            backdrop-filter: blur(15px);
             position: sticky;
             top: 0;
-
-            z-index: 50;
-
-            background: rgba(3, 7, 18, 0.85);
-            backdrop-filter: blur(15px);
+            z-index: 100;
         }
 
         .logo {
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.3rem;
+            font-size: 1.35rem;
             font-weight: 800;
             letter-spacing: 2px;
         }
 
         .logo span {
-            color: var(--blue);
+            color: #42d9ff;
         }
 
         .back-btn {
+            color: #ffffff;
             text-decoration: none;
-            color: white;
-
-            border: 1px solid rgba(66, 217, 255, 0.45);
-
-            padding: 11px 20px;
-
-            border-radius: 30px;
-
             font-size: 0.9rem;
             font-weight: 600;
-
+            padding: 10px 18px;
+            border: 1px solid rgba(66,217,255,0.35);
+            border-radius: 10px;
             transition: 0.3s ease;
         }
 
         .back-btn:hover {
-            background: var(--blue);
-            color: #03101b;
-
-            box-shadow:
-                0 0 25px rgba(66, 217, 255, 0.35);
+            background: rgba(66,217,255,0.1);
+            border-color: #42d9ff;
+            transform: translateY(-2px);
         }
 
-        /* =========================
-           HERO
-        ========================== */
-
+        /* Hero */
         .hero {
             text-align: center;
-
             padding: 90px 20px 60px;
         }
 
-        .small-label {
-            color: var(--blue);
-
+        .hero-label {
             font-family: 'Orbitron', sans-serif;
-
-            font-size: 0.85rem;
-
-            letter-spacing: 5px;
-
+            color: #42d9ff;
+            font-size: 0.8rem;
+            letter-spacing: 4px;
             font-weight: 700;
-
             margin-bottom: 18px;
         }
 
         .hero h1 {
             font-family: 'Orbitron', sans-serif;
-
-            font-size:
-                clamp(2.3rem, 6vw, 5rem);
-
-            line-height: 1.1;
-
+            font-size: clamp(2.5rem, 7vw, 5.5rem);
+            line-height: 1;
+            letter-spacing: 3px;
             margin-bottom: 20px;
         }
 
         .hero h1 span {
-            color: var(--blue);
+            color: #42d9ff;
         }
 
         .hero p {
-            color: var(--muted);
-
-            max-width: 600px;
-
+            max-width: 650px;
             margin: auto;
-
+            color: rgba(255,255,255,0.6);
             line-height: 1.7;
-
             font-size: 1rem;
         }
 
-        /* =========================
-           GALLERY
-        ========================== */
-
+        /* Gallery */
         .gallery {
-            width: min(1400px, 90%);
-
+            width: 90%;
+            max-width: 1450px;
             margin: 0 auto 100px;
-
             display: grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
+            grid-template-columns: repeat(3, 1fr);
             gap: 28px;
         }
 
-        .shirt-card {
+        .card {
             position: relative;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(255,255,255,0.06),
-                    rgba(255,255,255,0.015)
-                );
-
-            border:
-                1px solid rgba(255,255,255,0.08);
-
+            background: rgba(255,255,255,0.025);
+            border: 1px solid rgba(66,217,255,0.18);
             border-radius: 18px;
-
-            padding: 10px;
-
+            padding: 12px;
             overflow: hidden;
-
+            transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
             cursor: pointer;
-
-            opacity: 0;
-
-            transform: translateY(40px);
-
-            animation:
-                cardReveal 0.8s ease forwards;
         }
 
-        .shirt-card:nth-child(1) {
-            animation-delay: .05s;
-        }
-
-        .shirt-card:nth-child(2) {
-            animation-delay: .10s;
-        }
-
-        .shirt-card:nth-child(3) {
-            animation-delay: .15s;
-        }
-
-        .shirt-card:nth-child(4) {
-            animation-delay: .20s;
-        }
-
-        .shirt-card:nth-child(5) {
-            animation-delay: .25s;
-        }
-
-        .shirt-card:nth-child(6) {
-            animation-delay: .30s;
-        }
-
-        .shirt-card:nth-child(7) {
-            animation-delay: .35s;
-        }
-
-        .shirt-card:nth-child(8) {
-            animation-delay: .40s;
-        }
-
-        .shirt-card:nth-child(9) {
-            animation-delay: .45s;
-        }
-
-        .shirt-card:nth-child(10) {
-            animation-delay: .50s;
-        }
-
-        .shirt-card:nth-child(11) {
-            animation-delay: .55s;
-        }
-
-        .shirt-card:nth-child(12) {
-            animation-delay: .60s;
-        }
-
-        .shirt-card:nth-child(13) {
-            animation-delay: .65s;
-        }
-
-        .shirt-card:nth-child(14) {
-            animation-delay: .70s;
-        }
-
-        .shirt-card:nth-child(15) {
-            animation-delay: .75s;
-        }
-
-        .shirt-card:nth-child(16) {
-            animation-delay: .80s;
-        }
-
-        .shirt-card:nth-child(17) {
-            animation-delay: .85s;
-        }
-
-        .shirt-card:nth-child(18) {
-            animation-delay: .90s;
-        }
-
-        .shirt-card:nth-child(19) {
-            animation-delay: .95s;
-        }
-
-        .shirt-card:nth-child(20) {
-            animation-delay: 1s;
-        }
-
-        @keyframes cardReveal {
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-
-        }
-
-        .shirt-card:hover {
-            border-color:
-                rgba(66,217,255,0.55);
-
-            transform:
-                translateY(-8px);
-
+        .card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(66,217,255,0.65);
             box-shadow:
                 0 20px 50px rgba(0,0,0,0.45),
                 0 0 30px rgba(66,217,255,0.08);
         }
 
-        /* =========================
-           IMAGE
-        ========================== */
-
         .image-wrap {
-            position: relative;
-
             width: 100%;
-
             aspect-ratio: 3 / 4;
-
             overflow: hidden;
-
             border-radius: 12px;
-
-            background: #080d18;
+            background: #0a1020;
         }
 
         .image-wrap img {
             width: 100%;
             height: 100%;
-
             display: block;
-
             object-fit: cover;
-
-            transition:
-                transform 0.6s ease;
+            object-position: center;
+            transition: transform 0.6s ease;
         }
 
-        .shirt-card:hover img {
-            transform:
-                scale(1.035);
+        .card:hover .image-wrap img {
+            transform: scale(1.04);
         }
 
-        /* =========================
-           VIEW OVERLAY
-        ========================== */
-
-        .view-overlay {
-            position: absolute;
-
-            inset: 0;
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            background:
-                rgba(0,0,0,0.35);
-
-            opacity: 0;
-
-            transition: 0.3s ease;
-        }
-
-        .shirt-card:hover
-        .view-overlay {
-            opacity: 1;
-        }
-
-        .view-text {
-            padding: 10px 18px;
-
-            border-radius: 30px;
-
-            background:
-                rgba(3,7,18,0.85);
-
-            border:
-                1px solid rgba(66,217,255,0.7);
-
-            color: white;
-
-            font-size: 0.85rem;
-
-            font-weight: 600;
-        }
-
-        /* =========================
-           CARD INFO
-        ========================== */
-
-        .shirt-info {
-            padding:
-                18px 10px 12px;
+        .card-info {
+            padding: 16px 8px 8px;
         }
 
         .number {
-            color: var(--blue);
-
-            font-size: 0.75rem;
-
+            display: block;
+            color: #42d9ff;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
             font-weight: 700;
-
             letter-spacing: 2px;
-
             margin-bottom: 7px;
         }
 
-        .shirt-info h2 {
+        .card-title {
             font-family: 'Orbitron', sans-serif;
-
             font-size: 1rem;
-
             font-weight: 600;
+            color: #ffffff;
         }
 
-        /* =========================
-           MODAL
-        ========================== */
-
+        /* Modal */
         .modal {
             position: fixed;
-
             inset: 0;
-
-            background:
-                rgba(0,0,0,0.88);
-
+            background: rgba(0,0,0,0.92);
             display: flex;
-
             align-items: center;
             justify-content: center;
-
             padding: 30px;
-
             opacity: 0;
-
             visibility: hidden;
-
             transition: 0.3s ease;
-
-            z-index: 100;
+            z-index: 999;
         }
 
         .modal.active {
@@ -449,112 +227,35 @@
             visibility: visible;
         }
 
-        .modal-content {
-            position: relative;
-
-            max-width: 600px;
-
-            max-height: 92vh;
-
-            width: 100%;
-
-            display: flex;
-
-            justify-content: center;
+        .modal img {
+            max-width: 90vw;
+            max-height: 90vh;
+            border-radius: 15px;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.7);
         }
 
-        .modal-content img {
-            max-width: 100%;
-
-            max-height: 88vh;
-
-            width: auto;
-            height: auto;
-
-            object-fit: contain;
-
-            border-radius: 14px;
-
-            box-shadow:
-                0 25px 80px rgba(0,0,0,0.7);
-        }
-
-        /* =========================
-           CLOSE BUTTON
-        ========================== */
-
-        .close-btn {
-            position: fixed;
-
+        .close {
+            position: absolute;
             top: 25px;
             right: 30px;
-
             width: 45px;
             height: 45px;
-
-            border:
-                1px solid rgba(255,255,255,0.25);
-
             border-radius: 50%;
-
-            background:
-                rgba(10,18,34,0.9);
-
-            color: white;
-
+            border: 1px solid rgba(255,255,255,0.25);
+            background: rgba(255,255,255,0.08);
+            color: #ffffff;
             font-size: 1.5rem;
-
             cursor: pointer;
-
-            z-index: 110;
         }
 
-        .close-btn:hover {
-            background: var(--blue);
-
-            color: #03101b;
-        }
-
-        /* =========================
-           FOOTER
-        ========================== */
-
-        footer {
-            text-align: center;
-
-            padding: 35px 20px;
-
-            border-top:
-                1px solid rgba(255,255,255,0.08);
-
-            color: var(--muted);
-
-            font-size: 0.85rem;
-        }
-
-        footer span {
-            color: var(--blue);
-        }
-
-        /* =========================
-           TABLET
-        ========================== */
-
-        @media (max-width: 900px) {
-
+        /* Tablet */
+        @media (max-width: 1000px) {
             .gallery {
-                grid-template-columns:
-                    repeat(2, 1fr);
-
-                gap: 20px;
+                grid-template-columns: repeat(2, 1fr);
             }
-
         }
 
-        /* =========================
-           MOBILE
-        ========================== */
-
+        /* Mobile */
         @media (max-width: 600px) {
 
             header {
@@ -566,467 +267,355 @@
             }
 
             .back-btn {
-                padding: 9px 14px;
-
-                font-size: 0.78rem;
+                font-size: 0.75rem;
+                padding: 8px 12px;
             }
 
             .hero {
-                padding:
-                    65px 20px 45px;
-            }
-
-            .hero h1 {
-                font-size: 2.2rem;
+                padding: 65px 20px 45px;
             }
 
             .gallery {
                 width: 92%;
-
-                grid-template-columns:
-                    repeat(2, 1fr);
-
-                gap: 12px;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 14px;
             }
 
-            .shirt-card {
-                padding: 6px;
-
-                border-radius: 12px;
+            .card {
+                padding: 8px;
+                border-radius: 13px;
             }
 
-            .image-wrap {
-                border-radius: 8px;
+            .card-info {
+                padding: 12px 4px 5px;
             }
 
-            .shirt-info {
-                padding:
-                    11px 5px 7px;
-            }
-
-            .shirt-info h2 {
+            .card-title {
                 font-size: 0.72rem;
             }
 
             .number {
-                font-size: 0.62rem;
-
-                margin-bottom: 4px;
+                font-size: 0.55rem;
             }
-
-            .view-overlay {
-                display: none;
-            }
-
-            .modal {
-                padding: 15px;
-            }
-
-            .close-btn {
-                top: 15px;
-                right: 15px;
-            }
-
         }
-
     </style>
 </head>
 
-
 <body>
 
-    <!-- =========================
-         HEADER
-    ========================== -->
-
+    <!-- HEADER -->
     <header>
-
         <div class="logo">
             SPLATTER <span>GRAPHICS</span>
         </div>
 
-        <a
-            href="../index.html"
-            class="back-btn"
-        >
+        <a href="../index.html" class="back-btn">
             ← Back to Portfolio
         </a>
-
     </header>
 
 
-    <!-- =========================
-         HERO
-    ========================== -->
-
+    <!-- HERO -->
     <section class="hero">
 
-        <div class="small-label">
-            T-SHIRT COLLECTION
+        <div class="hero-label">
+            OUR COLLECTION
         </div>
 
         <h1>
-            T-Shirt <span>Designs</span>
+            T-SHIRT <span>DESIGNS</span>
         </h1>
 
         <p>
-            A collection of custom T-shirt designs
-            created by Splatter Graphics.
-            Creative typography, concepts and
-            visual identities made for print.
+            A collection of creative, bold and expressive T-shirt designs
+            crafted by Splatter Graphics.
         </p>
 
     </section>
 
 
-    <!-- =========================
-         GALLERY
-    ========================== -->
-
+    <!-- GALLERY -->
     <main class="gallery">
 
-
         <!-- 01 -->
-
-        <div
-            class="shirt-card"
-            onclick="openModal(this)"
-        >
-
+        <div class="card" onclick="openModal('nagavally.png')">
             <div class="image-wrap">
-
-                <img
-                    src="nagavally.png.png"
-                    alt="Nagavalli T-Shirt Design"
-                >
-
-                <div class="view-overlay">
-                    <div class="view-text">
-                        View Design
-                    </div>
-                </div>
-
+                <img src="nagavally.png" alt="Nagavalli">
             </div>
-
-            <div class="shirt-info">
-
-                <div class="number">
-                    01
-                </div>
-
-                <h2>
-                    Nagavalli
-                </h2>
-
+            <div class="card-info">
+                <span class="number">01</span>
+                <div class="card-title">Nagavalli</div>
             </div>
-
         </div>
 
 
         <!-- 02 -->
-
-        <div
-            class="shirt-card"
-            onclick="openModal(this)"
-        >
-
+        <div class="card" onclick="openModal('onam.png')">
             <div class="image-wrap">
-
-                <img
-                    src="onam.png.png"
-                    alt="Onam T-Shirt Design"
-                >
-
-                <div class="view-overlay">
-                    <div class="view-text">
-                        View Design
-                    </div>
-                </div>
-
+                <img src="onam.png" alt="Onam">
             </div>
-
-            <div class="shirt-info">
-
-                <div class="number">
-                    02
-                </div>
-
-                <h2>
-                    Onam
-                </h2>
-
+            <div class="card-info">
+                <span class="number">02</span>
+                <div class="card-title">Onam</div>
             </div>
-
         </div>
 
 
         <!-- 03 -->
-
-        <div
-            class="shirt-card"
-            onclick="openModal(this)"
-        >
-
+        <div class="card" onclick="openModal('cruzados.png')">
             <div class="image-wrap">
-
-                <img
-                    src="cruzados.png.png"
-                    alt="Cruzados T-Shirt Design"
-                >
-
-                <div class="view-overlay">
-                    <div class="view-text">
-                        View Design
-                    </div>
-                </div>
-
+                <img src="cruzados.png" alt="Cruzados">
             </div>
-
-            <div class="shirt-info">
-
-                <div class="number">
-                    03
-                </div>
-
-                <h2>
-                    Cruzados
-                </h2>
-
+            <div class="card-info">
+                <span class="number">03</span>
+                <div class="card-title">Cruzados</div>
             </div>
-
         </div>
 
 
         <!-- 04 -->
-
-        <div
-            class="shirt-card"
-            onclick="openModal(this)"
-        >
-
+        <div class="card" onclick="openModal('the-god-father.png')">
             <div class="image-wrap">
-
-                <img
-                    src="the-god-father.png.png"
-                    alt="God Father T-Shirt Design"
-                >
-
-                <div class="view-overlay">
-                    <div class="view-text">
-                        View Design
-                    </div>
-                </div>
-
+                <img src="the-god-father.png" alt="God Father">
             </div>
-
-            <div class="shirt-info">
-
-                <div class="number">
-                    04
-                </div>
-
-                <h2>
-                    God Father
-                </h2>
-
+            <div class="card-info">
+                <span class="number">04</span>
+                <div class="card-title">God Father</div>
             </div>
-
         </div>
 
 
         <!-- 05 -->
-
-        <div
-            class="shirt-card"
-            onclick="openModal(this)"
-        >
-
+        <div class="card" onclick="openModal('mangalashery-neelakandante.png')">
             <div class="image-wrap">
-
-                <img
-                    src="mangalashery-neelakandan.png.png"
-                    alt="Neelakandante Paattalam T-Shirt Design"
-                >
-
-                <div class="view-overlay">
-                    <div class="view-text">
-                        View Design
-                    </div>
-                </div>
-
+                <img src="mangalashery-neelakandante.png" alt="Neelakandante Paattalam">
             </div>
-
-            <div class="shirt-info">
-
-                <div class="number">
-                    05
-                </div>
-
-                <h2>
-                    Neelakandante Paattalam
-                </h2>
-
+            <div class="card-info">
+                <span class="number">05</span>
+                <div class="card-title">Neelakandante Paattalam</div>
             </div>
-
         </div>
 
 
         <!-- 06 -->
-
-        <div
-            class="shirt-card"
-            onclick="openModal(this)"
-        >
-
+        <div class="card" onclick="openModal('i-need-more-space.png')">
             <div class="image-wrap">
-
-                <img
-                    src="i-need-more-space.png.png"
-                    alt="I Need More Space T-Shirt Design"
-                >
-
-                <div class="view-overlay">
-                    <div class="view-text">
-                        View Design
-                    </div>
-                </div>
-
+                <img src="i-need-more-space.png" alt="I Need More Space">
             </div>
-
-            <div class="shirt-info">
-
-                <div class="number">
-                    06
-                </div>
-
-                <h2>
-                    I Need More Space
-                </h2>
-
+            <div class="card-info">
+                <span class="number">06</span>
+                <div class="card-title">I Need More Space</div>
             </div>
-
         </div>
 
 
         <!-- 07 -->
-
-        <div
-            class="shirt-card"
-            onclick="openModal(this)"
-        >
-
+        <div class="card" onclick="openModal('only-you.png')">
             <div class="image-wrap">
-
-                <img
-                    src="only-you.png.png"
-                    alt="Only You T-Shirt Design"
-                >
-
-                <div class="view-overlay">
-                    <div class="view-text">
-                        View Design
-                    </div>
-                </div>
-
+                <img src="only-you.png" alt="Only You">
             </div>
-
-            <div class="shirt-info">
-
-                <div class="number">
-                    07
-                </div>
-
-                <h2>
-                    Only You
-                </h2>
-
+            <div class="card-info">
+                <span class="number">07</span>
+                <div class="card-title">Only You</div>
             </div>
-
         </div>
 
 
         <!-- 08 -->
-
-        <div
-            class="shirt-card"
-            onclick="openModal(this)"
-        >
-
+        <div class="card" onclick="openModal('wanna-be-yours.png')">
             <div class="image-wrap">
-
-                <img
-                    src="wanna-be-yours.png.png"
-                    alt="Wanna Be Yours T-Shirt Design"
-                >
-
-                <div class="view-overlay">
-                    <div class="view-text">
-                        View Design
-                    </div>
-                </div>
-
+                <img src="wanna-be-yours.png" alt="Wanna Be Yours">
             </div>
-
-            <div class="shirt-info">
-
-                <div class="number">
-                    08
-                </div>
-
-                <h2>
-                    Wanna Be Yours
-                </h2>
-
+            <div class="card-info">
+                <span class="number">08</span>
+                <div class="card-title">Wanna Be Yours</div>
             </div>
-
         </div>
 
 
         <!-- 09 -->
-
-        <div
-            class="shirt-card"
-            onclick="openModal(this)"
-        >
-
+        <div class="card" onclick="openModal('never-luck.png')">
             <div class="image-wrap">
-
-                <img
-                    src="never-luck.png.png"
-                    alt="Never Luck T-Shirt Design"
-                >
-
-                <div class="view-overlay">
-                    <div class="view-text">
-                        View Design
-                    </div>
-                </div>
-
+                <img src="never-luck.png" alt="Never Luck">
             </div>
-
-            <div class="shirt-info">
-
-                <div class="number">
-                    09
-                </div>
-
-                <h2>
-                    Never Luck
-                </h2>
-
+            <div class="card-info">
+                <span class="number">09</span>
+                <div class="card-title">Never Luck</div>
             </div>
-
         </div>
 
 
         <!-- 10 -->
-
-        <div
-            class="shirt-card"
-            onclick="openModal(this)"
-        >
-
+        <div class="card" onclick="openModal('spider-man.jpg')">
             <div class="image-wrap">
+                <img src="spider-man.jpg" alt="Spider Man">
+            </div>
+            <div class="card-info">
+                <span class="number">10</span>
+                <div class="card-title">Spider Man</div>
+            </div>
+        </div>
 
-                <img
-                    src="spider-man.jpg.jpg"
+
+        <!-- 11 -->
+        <div class="card" onclick="openModal('payippadans.png')">
+            <div class="image-wrap">
+                <img src="payippadans.png" alt="PAYIPPADAN">
+            </div>
+            <div class="card-info">
+                <span class="number">11</span>
+                <div class="card-title">PAYIPPADAN</div>
+            </div>
+        </div>
+
+
+        <!-- 12 -->
+        <div class="card" onclick="openModal('with-her.png')">
+            <div class="image-wrap">
+                <img src="with-her.png" alt="With Her">
+            </div>
+            <div class="card-info">
+                <span class="number">12</span>
+                <div class="card-title">With Her</div>
+            </div>
+        </div>
+
+
+        <!-- 13 -->
+        <div class="card" onclick="openModal('lahel-vakkachan.png')">
+            <div class="image-wrap">
+                <img src="lahel-vakkachan.png" alt="Lahel Vakkachan">
+            </div>
+            <div class="card-info">
+                <span class="number">13</span>
+                <div class="card-title">Lahel Vakkachan</div>
+            </div>
+        </div>
+
+
+        <!-- 14 -->
+        <div class="card" onclick="openModal('sagar-alias-jacky.jpg')">
+            <div class="image-wrap">
+                <img src="sagar-alias-jacky.jpg" alt="Sagar Alias Jacky">
+            </div>
+            <div class="card-info">
+                <span class="number">14</span>
+                <div class="card-title">Sagar ALIAS JACKY</div>
+            </div>
+        </div>
+
+
+        <!-- 15 -->
+        <div class="card" onclick="openModal('dodge.jpg')">
+            <div class="image-wrap">
+                <img src="dodge.jpg" alt="Dodge">
+            </div>
+            <div class="card-info">
+                <span class="number">15</span>
+                <div class="card-title">Dodge</div>
+            </div>
+        </div>
+
+
+        <!-- 16 -->
+        <div class="card" onclick="openModal('mani.jpg')">
+            <div class="image-wrap">
+                <img src="mani.jpg" alt="Inspector NADESHAN">
+            </div>
+            <div class="card-info">
+                <span class="number">16</span>
+                <div class="card-title">Inspector NADESHAN</div>
+            </div>
+        </div>
+
+
+        <!-- 17 -->
+        <div class="card" onclick="openModal('cant.png')">
+            <div class="image-wrap">
+                <img src="cant.png" alt="Stay Strong">
+            </div>
+            <div class="card-info">
+                <span class="number">17</span>
+                <div class="card-title">Stay Strong</div>
+            </div>
+        </div>
+
+
+        <!-- 18 -->
+        <div class="card" onclick="openModal('dream.png')">
+            <div class="image-wrap">
+                <img src="dream.png" alt="Dream">
+            </div>
+            <div class="card-info">
+                <span class="number">18</span>
+                <div class="card-title">Dream</div>
+            </div>
+        </div>
+
+
+        <!-- 19 -->
+        <div class="card" onclick="openModal('keep-moving.png')">
+            <div class="image-wrap">
+                <img src="keep-moving.png" alt="Keep Moving">
+            </div>
+            <div class="card-info">
+                <span class="number">19</span>
+                <div class="card-title">Keep Moving</div>
+            </div>
+        </div>
+
+
+        <!-- 20 -->
+        <div class="card" onclick="openModal('money.png')">
+            <div class="image-wrap">
+                <img src="money.png" alt="Money">
+            </div>
+            <div class="card-info">
+                <span class="number">20</span>
+                <div class="card-title">Money</div>
+            </div>
+        </div>
+
+    </main>
+
+
+    <!-- IMAGE MODAL -->
+    <div class="modal" id="imageModal" onclick="closeModal(event)">
+
+        <button class="close" onclick="closeModal()">
+            ×
+        </button>
+
+        <img id="modalImage" src="" alt="T-Shirt Design">
+
+    </div>
+
+
+    <script>
+        function openModal(image) {
+            const modal = document.getElementById("imageModal");
+            const modalImage = document.getElementById("modalImage");
+
+            modalImage.src = image;
+            modal.classList.add("active");
+        }
+
+        function closeModal(event) {
+            if (
+                !event ||
+                event.target.id === "imageModal" ||
+                event.target.classList.contains("close")
+            ) {
+                document.getElementById("imageModal").classList.remove("active");
+            }
+        }
+
+        document.addEventListener("keydown", function(event) {
+            if (event.key === "Escape") {
+                document.getElementById("imageModal").classList.remove("active");
+            }
+        });
+    </script>
+
+</body>
+</html>
