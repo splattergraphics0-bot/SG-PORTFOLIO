@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Splatter Graphics | Logo Design</title>
+    <title>Logo Designs | Splatter Graphics</title>
 
     <style>
         * {
@@ -78,6 +78,10 @@
             margin-top: 15px;
             color: rgba(255, 255, 255, 0.6);
             font-size: 15px;
+            max-width: 750px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
         }
 
         /* CONTAINER */
@@ -227,8 +231,17 @@
                 padding: 35px 15px 40px;
             }
 
+            .label {
+                font-size: 11px;
+                letter-spacing: 3px;
+            }
+
             .hero h1 {
                 font-size: 2.3rem;
+            }
+
+            .hero p {
+                font-size: 13px;
             }
 
             .container {
@@ -285,13 +298,16 @@
     <section class="hero">
 
         <div class="label">
-            PROJECT 01
+            COLLECTION 03
         </div>
 
-        <h1>LOGO DESIGN</h1>
+        <h1>
+            LOGO DESIGNS
+        </h1>
 
         <p>
-            Selected branding and logo design projects by Splatter Graphics.
+            A curated collection of logo designs created by Splatter Graphics —
+            unique concepts, clean typography and memorable visual identities.
         </p>
 
     </section>
@@ -430,21 +446,21 @@
 
 
             <!-- 08 THOHUR -->
-<div class="project-card" onclick="openModal(this)">
+            <div class="project-card" onclick="openModal(this)">
 
-    <div class="image-box">
-        <img
-            src="https://raw.githubusercontent.com/splattergraphics0-bot/SG-PORTFOLIO/main/Logos/thohur.png.png.png"
-            alt="Thohur"
-        >
-    </div>
+                <div class="image-box">
+                    <img
+                        src="https://raw.githubusercontent.com/splattergraphics0-bot/SG-PORTFOLIO/main/Logos/thohur.png.png.png"
+                        alt="Thohur"
+                    >
+                </div>
 
-    <div class="project-info">
-        <h2>Thohur</h2>
-        <p>LOGO DESIGN</p>
-    </div>
+                <div class="project-info">
+                    <h2>Thohur</h2>
+                    <p>LOGO DESIGN</p>
+                </div>
 
-</div>
+            </div>
 
 
             <!-- 09 TROJAN -->
@@ -581,7 +597,8 @@
 
             const modal = document.getElementById("imageModal");
 
-            const modalImage = document.getElementById("modalImage");
+            const modalImage =
+                document.getElementById("modalImage");
 
             modalImage.src = image.src;
 
@@ -595,7 +612,8 @@
 
         function closeModal(event) {
 
-            const modal = document.getElementById("imageModal");
+            const modal =
+                document.getElementById("imageModal");
 
             if (
                 event &&
