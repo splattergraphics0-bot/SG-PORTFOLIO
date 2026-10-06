@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>T-Shirt Designs | Splatter Graphics</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -22,37 +23,9 @@
 
         body {
             background: #030712;
-            color: #fff;
+            color: #ffffff;
             font-family: 'Inter', sans-serif;
             min-height: 100vh;
-        }
-
-        body::before {
-            content: "";
-            position: fixed;
-            width: 500px;
-            height: 500px;
-            top: -200px;
-            left: -150px;
-            background: rgba(40, 130, 255, 0.08);
-            filter: blur(120px);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        body::after {
-            content: "";
-            position: fixed;
-            width: 500px;
-            height: 500px;
-            right: -200px;
-            bottom: -200px;
-            background: rgba(0, 220, 255, 0.06);
-            filter: blur(120px);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: -1;
         }
 
         header {
@@ -62,7 +35,7 @@
             align-items: center;
             justify-content: space-between;
             border-bottom: 1px solid rgba(255,255,255,0.08);
-            background: rgba(3,7,18,0.85);
+            background: rgba(3,7,18,0.9);
             backdrop-filter: blur(15px);
             position: sticky;
             top: 0;
@@ -94,7 +67,6 @@
         .back-btn:hover {
             background: rgba(66,217,255,0.1);
             border-color: #42d9ff;
-            transform: translateY(-2px);
         }
 
         .hero {
@@ -128,7 +100,6 @@
             margin: auto;
             color: rgba(255,255,255,0.6);
             line-height: 1.7;
-            font-size: 1rem;
         }
 
         .gallery {
@@ -141,22 +112,19 @@
         }
 
         .card {
-            position: relative;
             background: rgba(255,255,255,0.025);
             border: 1px solid rgba(66,217,255,0.18);
             border-radius: 18px;
             padding: 12px;
             overflow: hidden;
-            transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+            transition: 0.4s ease;
             cursor: pointer;
         }
 
         .card:hover {
             transform: translateY(-8px);
             border-color: rgba(66,217,255,0.65);
-            box-shadow:
-                0 20px 50px rgba(0,0,0,0.45),
-                0 0 30px rgba(66,217,255,0.08);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.45);
         }
 
         .image-wrap {
@@ -173,10 +141,10 @@
             display: block;
             object-fit: cover;
             object-position: center;
-            transition: transform 0.6s ease;
+            transition: 0.6s ease;
         }
 
-        .card:hover .image-wrap img {
+        .card:hover img {
             transform: scale(1.04);
         }
 
@@ -198,13 +166,12 @@
             font-family: 'Orbitron', sans-serif;
             font-size: 1rem;
             font-weight: 600;
-            color: #fff;
         }
 
         .modal {
             position: fixed;
             inset: 0;
-            background: rgba(0,0,0,0.92);
+            background: rgba(0,0,0,0.94);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -224,7 +191,6 @@
             max-width: 90vw;
             max-height: 90vh;
             border-radius: 15px;
-            box-shadow: 0 30px 80px rgba(0,0,0,0.7);
         }
 
         .close {
@@ -276,16 +242,8 @@
                 border-radius: 13px;
             }
 
-            .card-info {
-                padding: 12px 4px 5px;
-            }
-
             .card-title {
                 font-size: 0.72rem;
-            }
-
-            .number {
-                font-size: 0.55rem;
             }
         }
     </style>
@@ -318,10 +276,9 @@
 
 <main class="gallery">
 
-    <!-- 01 -->
-    <div class="card" onclick="openModal('nagavelly.png.png')">
+    <div class="card" onclick="openModal(1)">
         <div class="image-wrap">
-            <img src="nagavelly.png.png" alt="Nagavalli">
+            <img src="https://raw.githubusercontent.com/splattergraphics0-bot/SG-PORTFOLIO/main/T-SHIRTS/nagavally.png.png" alt="Nagavalli">
         </div>
         <div class="card-info">
             <span class="number">01</span>
@@ -329,10 +286,9 @@
         </div>
     </div>
 
-    <!-- 02 -->
-    <div class="card" onclick="openModal('onam.png.png')">
+    <div class="card" onclick="openModal(2)">
         <div class="image-wrap">
-            <img src="onam.png.png" alt="Onam">
+            <img src="https://raw.githubusercontent.com/splattergraphics0-bot/SG-PORTFOLIO/main/T-SHIRTS/onam.png.png" alt="Onam">
         </div>
         <div class="card-info">
             <span class="number">02</span>
@@ -340,10 +296,9 @@
         </div>
     </div>
 
-    <!-- 03 -->
-    <div class="card" onclick="openModal('cruzados.png.png')">
+    <div class="card" onclick="openModal(3)">
         <div class="image-wrap">
-            <img src="cruzados.png.png" alt="Cruzados">
+            <img src="https://raw.githubusercontent.com/splattergraphics0-bot/SG-PORTFOLIO/main/T-SHIRTS/cruzados.png.png" alt="Cruzados">
         </div>
         <div class="card-info">
             <span class="number">03</span>
@@ -351,10 +306,9 @@
         </div>
     </div>
 
-    <!-- 04 -->
-    <div class="card" onclick="openModal('the-god-father.png.png')">
+    <div class="card" onclick="openModal(4)">
         <div class="image-wrap">
-            <img src="the-god-father.png.png" alt="God Father">
+            <img src="https://raw.githubusercontent.com/splattergraphics0-bot/SG-PORTFOLIO/main/T-SHIRTS/the-god-father.png.png" alt="God Father">
         </div>
         <div class="card-info">
             <span class="number">04</span>
@@ -362,10 +316,9 @@
         </div>
     </div>
 
-    <!-- 05 -->
-    <div class="card" onclick="openModal('mangalashery-neelakandan.png.png')">
+    <div class="card" onclick="openModal(5)">
         <div class="image-wrap">
-            <img src="mangalashery-neelakandan.png.png" alt="Neelakandante Paattalam">
+            <img src="https://raw.githubusercontent.com/splattergraphics0-bot/SG-PORTFOLIO/main/T-SHIRTS/mangalashery-neelakandan.png.png" alt="Neelakandante Paattalam">
         </div>
         <div class="card-info">
             <span class="number">05</span>
@@ -373,10 +326,9 @@
         </div>
     </div>
 
-    <!-- 06 -->
-    <div class="card" onclick="openModal('i-need-more-space.png.png')">
+    <div class="card" onclick="openModal(6)">
         <div class="image-wrap">
-            <img src="i-need-more-space.png.png" alt="I Need More Space">
+            <img src="https://raw.githubusercontent.com/splattergraphics0-bot/SG-PORTFOLIO/main/T-SHIRTS/i-need-more-space.png.png" alt="I Need More Space">
         </div>
         <div class="card-info">
             <span class="number">06</span>
@@ -384,10 +336,9 @@
         </div>
     </div>
 
-    <!-- 07 -->
-    <div class="card" onclick="openModal('only-you.png.png')">
+    <div class="card" onclick="openModal(7)">
         <div class="image-wrap">
-            <img src="only-you.png.png" alt="Only You">
+            <img src="https://raw.githubusercontent.com/splattergraphics0-bot/SG-PORTFOLIO/main/T-SHIRTS/only-you.png.png" alt="Only You">
         </div>
         <div class="card-info">
             <span class="number">07</span>
@@ -395,10 +346,9 @@
         </div>
     </div>
 
-    <!-- 08 -->
-    <div class="card" onclick="openModal('wanna-be-yours.png.png')">
+    <div class="card" onclick="openModal(8)">
         <div class="image-wrap">
-            <img src="wanna-be-yours.png.png" alt="Wanna Be Yours">
+            <img src="https://raw.githubusercontent.com/splattergraphics0-bot/SG-PORTFOLIO/main/T-SHIRTS/wanna-be-yours.png.png" alt="Wanna Be Yours">
         </div>
         <div class="card-info">
             <span class="number">08</span>
@@ -406,10 +356,9 @@
         </div>
     </div>
 
-    <!-- 09 -->
-    <div class="card" onclick="openModal('never-luck.png.png')">
+    <div class="card" onclick="openModal(9)">
         <div class="image-wrap">
-            <img src="never-luck.png.png" alt="Never Luck">
+            <img src="https://raw.githubusercontent.com/splattergraphics0-bot/SG-PORTFOLIO/main/T-SHIRTS/never-luck.png.png" alt="Never Luck">
         </div>
         <div class="card-info">
             <span class="number">09</span>
@@ -417,10 +366,9 @@
         </div>
     </div>
 
-    <!-- 10 -->
-    <div class="card" onclick="openModal('spider-man.jpg.png')">
+    <div class="card" onclick="openModal(10)">
         <div class="image-wrap">
-            <img src="spider-man.jpg.png" alt="Spider Man">
+            <img src="https://raw.githubusercontent.com/splattergraphics0-bot/SG-PORTFOLIO/main/T-SHIRTS/spider-man.jpg.png" alt="Spider Man">
         </div>
         <div class="card-info">
             <span class="number">10</span>
@@ -428,10 +376,9 @@
         </div>
     </div>
 
-    <!-- 11 -->
-    <div class="card" onclick="openModal('payippadans.png.png')">
+    <div class="card" onclick="openModal(11)">
         <div class="image-wrap">
-            <img src="payippadans.png.png" alt="PAYIPPADAN">
+            <img src="https://raw.githubusercontent.com/splattergraphics0-bot/SG-PORTFOLIO/main/T-SHIRTS/payippadans.png.png" alt="PAYIPPADAN">
         </div>
         <div class="card-info">
             <span class="number">11</span>
@@ -439,10 +386,9 @@
         </div>
     </div>
 
-    <!-- 12 -->
-    <div class="card" onclick="openModal('with-her.png.png')">
+    <div class="card" onclick="openModal(12)">
         <div class="image-wrap">
-            <img src="with-her.png.png" alt="With Her">
+            <img src="https://raw.githubusercontent.com/splattergraphics0-bot/SG-PORTFOLIO/main/T-SHIRTS/with-her.png.png" alt="With Her">
         </div>
         <div class="card-info">
             <span class="number">12</span>
@@ -450,10 +396,9 @@
         </div>
     </div>
 
-    <!-- 13 -->
-    <div class="card" onclick="openModal('lahel-vakkachan.png.png')">
+    <div class="card" onclick="openModal(13)">
         <div class="image-wrap">
-            <img src="lahel-vakkachan.png.png" alt="Lahel Vakkachan">
+            <img src="https://raw.githubusercontent.com/splattergraphics0-bot/SG-PORTFOLIO/main/T-SHIRTS/lahel-vakkachan.png.png" alt="Lahel Vakkachan">
         </div>
         <div class="card-info">
             <span class="number">13</span>
@@ -461,10 +406,9 @@
         </div>
     </div>
 
-    <!-- 14 -->
-    <div class="card" onclick="openModal('sagar-alias-jacky.jpg.png')">
+    <div class="card" onclick="openModal(14)">
         <div class="image-wrap">
-            <img src="sagar-alias-jacky.jpg.png" alt="Sagar Alias Jacky">
+            <img src="https://raw.githubusercontent.com/splattergraphics0-bot/SG-PORTFOLIO/main/T-SHIRTS/sagar-alias-jacky.jpg.png" alt="Sagar Alias Jacky">
         </div>
         <div class="card-info">
             <span class="number">14</span>
@@ -472,10 +416,9 @@
         </div>
     </div>
 
-    <!-- 15 -->
-    <div class="card" onclick="openModal('dodge.jpg.jpg')">
+    <div class="card" onclick="openModal(15)">
         <div class="image-wrap">
-            <img src="dodge.jpg.jpg" alt="Dodge">
+            <img src="https://raw.githubusercontent.com/splattergraphics0-bot/SG-PORTFOLIO/main/T-SHIRTS/dodge.jpg.jpg" alt="Dodge">
         </div>
         <div class="card-info">
             <span class="number">15</span>
@@ -483,10 +426,9 @@
         </div>
     </div>
 
-    <!-- 16 -->
-    <div class="card" onclick="openModal('mani.jpg.png')">
+    <div class="card" onclick="openModal(16)">
         <div class="image-wrap">
-            <img src="mani.jpg.png" alt="Inspector NADESHAN">
+            <img src="https://raw.githubusercontent.com/splattergraphics0-bot/SG-PORTFOLIO/main/T-SHIRTS/mani.jpg.png" alt="Inspector NADESHAN">
         </div>
         <div class="card-info">
             <span class="number">16</span>
@@ -494,10 +436,9 @@
         </div>
     </div>
 
-    <!-- 17 -->
-    <div class="card" onclick="openModal('cant.png.png')">
+    <div class="card" onclick="openModal(17)">
         <div class="image-wrap">
-            <img src="cant.png.png" alt="Stay Strong">
+            <img src="https://raw.githubusercontent.com/splattergraphics0-bot/SG-PORTFOLIO/main/T-SHIRTS/cant.png.png" alt="Stay Strong">
         </div>
         <div class="card-info">
             <span class="number">17</span>
@@ -505,10 +446,9 @@
         </div>
     </div>
 
-    <!-- 18 -->
-    <div class="card" onclick="openModal('dream.png.png')">
+    <div class="card" onclick="openModal(18)">
         <div class="image-wrap">
-            <img src="dream.png.png" alt="Dream">
+            <img src="https://raw.githubusercontent.com/splattergraphics0-bot/SG-PORTFOLIO/main/T-SHIRTS/dream.png.png" alt="Dream">
         </div>
         <div class="card-info">
             <span class="number">18</span>
@@ -516,10 +456,9 @@
         </div>
     </div>
 
-    <!-- 19 -->
-    <div class="card" onclick="openModal('keep-moving.png.png')">
+    <div class="card" onclick="openModal(19)">
         <div class="image-wrap">
-            <img src="keep-moving.png.png" alt="Keep Moving">
+            <img src="https://raw.githubusercontent.com/splattergraphics0-bot/SG-PORTFOLIO/main/T-SHIRTS/keep-moving.png.png" alt="Keep Moving">
         </div>
         <div class="card-info">
             <span class="number">19</span>
@@ -527,10 +466,9 @@
         </div>
     </div>
 
-    <!-- 20 -->
-    <div class="card" onclick="openModal('money.png.png')">
+    <div class="card" onclick="openModal(20)">
         <div class="image-wrap">
-            <img src="money.png.png" alt="Money">
+            <img src="https://raw.githubusercontent.com/splattergraphics0-bot/SG-PORTFOLIO/main/T-SHIRTS/money.png.png" alt="Money">
         </div>
         <div class="card-info">
             <span class="number">20</span>
@@ -546,29 +484,54 @@
 </div>
 
 <script>
-    function openModal(image) {
-        const modal = document.getElementById("imageModal");
-        const modalImage = document.getElementById("modalImage");
 
-        modalImage.src = image;
-        modal.classList.add("active");
+const images = [
+    "https://raw.githubusercontent.com/splattergraphics0-bot/SG-PORTFOLIO/main/T-SHIRTS/nagavally.png.png",
+    "https://raw.githubusercontent.com/splattergraphics0-bot/SG-PORTFOLIO/main/T-SHIRTS/onam.png.png",
+    "https://raw.githubusercontent.com/splattergraphics0-bot/SG-PORTFOLIO/main/T-SHIRTS/cruzados.png.png",
+    "https://raw.githubusercontent.com/splattergraphics0-bot/SG-PORTFOLIO/main/T-SHIRTS/the-god-father.png.png",
+    "https://raw.githubusercontent.com/splattergraphics0-bot/SG-PORTFOLIO/main/T-SHIRTS/mangalashery-neelakandan.png.png",
+    "https://raw.githubusercontent.com/splattergraphics0-bot/SG-PORTFOLIO/main/T-SHIRTS/i-need-more-space.png.png",
+    "https://raw.githubusercontent.com/splattergraphics0-bot/SG-PORTFOLIO/main/T-SHIRTS/only-you.png.png",
+    "https://raw.githubusercontent.com/splattergraphics0-bot/SG-PORTFOLIO/main/T-SHIRTS/wanna-be-yours.png.png",
+    "https://raw.githubusercontent.com/splattergraphics0-bot/SG-PORTFOLIO/main/T-SHIRTS/never-luck.png.png",
+    "https://raw.githubusercontent.com/splattergraphics0-bot/SG-PORTFOLIO/main/T-SHIRTS/spider-man.jpg.png",
+    "https://raw.githubusercontent.com/splattergraphics0-bot/SG-PORTFOLIO/main/T-SHIRTS/payippadans.png.png",
+    "https://raw.githubusercontent.com/splattergraphics0-bot/SG-PORTFOLIO/main/T-SHIRTS/with-her.png.png",
+    "https://raw.githubusercontent.com/splattergraphics0-bot/SG-PORTFOLIO/main/T-SHIRTS/lahel-vakkachan.png.png",
+    "https://raw.githubusercontent.com/splattergraphics0-bot/SG-PORTFOLIO/main/T-SHIRTS/sagar-alias-jacky.jpg.png",
+    "https://raw.githubusercontent.com/splattergraphics0-bot/SG-PORTFOLIO/main/T-SHIRTS/dodge.jpg.jpg",
+    "https://raw.githubusercontent.com/splattergraphics0-bot/SG-PORTFOLIO/main/T-SHIRTS/mani.jpg.png",
+    "https://raw.githubusercontent.com/splattergraphics0-bot/SG-PORTFOLIO/main/T-SHIRTS/cant.png.png",
+    "https://raw.githubusercontent.com/splattergraphics0-bot/SG-PORTFOLIO/main/T-SHIRTS/dream.png.png",
+    "https://raw.githubusercontent.com/splattergraphics0-bot/SG-PORTFOLIO/main/T-SHIRTS/keep-moving.png.png",
+    "https://raw.githubusercontent.com/splattergraphics0-bot/SG-PORTFOLIO/main/T-SHIRTS/money.png.png"
+];
+
+function openModal(number) {
+    const modal = document.getElementById("imageModal");
+    const modalImage = document.getElementById("modalImage");
+
+    modalImage.src = images[number - 1];
+    modal.classList.add("active");
+}
+
+function closeModal(event) {
+    if (
+        !event ||
+        event.target.id === "imageModal" ||
+        event.target.classList.contains("close")
+    ) {
+        document.getElementById("imageModal").classList.remove("active");
     }
+}
 
-    function closeModal(event) {
-        if (
-            !event ||
-            event.target.id === "imageModal" ||
-            event.target.classList.contains("close")
-        ) {
-            document.getElementById("imageModal").classList.remove("active");
-        }
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape") {
+        document.getElementById("imageModal").classList.remove("active");
     }
+});
 
-    document.addEventListener("keydown", function(event) {
-        if (event.key === "Escape") {
-            document.getElementById("imageModal").classList.remove("active");
-        }
-    });
 </script>
 
 </body>
