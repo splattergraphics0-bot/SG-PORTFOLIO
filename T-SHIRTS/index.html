@@ -28,7 +28,6 @@
             min-height: 100vh;
         }
 
-        /* HEADER */
         header {
             width: 100%;
             padding: 25px 6%;
@@ -71,7 +70,6 @@
             box-shadow: 0 0 25px rgba(66, 217, 255, 0.35);
         }
 
-        /* HERO */
         .hero {
             text-align: center;
             padding: 85px 20px 55px;
@@ -105,7 +103,6 @@
             font-size: 1rem;
         }
 
-        /* GALLERY */
         .gallery {
             width: min(1400px, 90%);
             margin: 0 auto 100px;
@@ -171,7 +168,6 @@
             line-height: 1.4;
         }
 
-        /* MODAL */
         .modal {
             position: fixed;
             inset: 0;
@@ -218,7 +214,6 @@
             z-index: 2;
         }
 
-        /* FOOTER */
         footer {
             text-align: center;
             padding: 35px 20px;
@@ -231,7 +226,6 @@
             color: #42d9ff;
         }
 
-        /* TABLET */
         @media (max-width: 900px) {
             .gallery {
                 grid-template-columns: repeat(2, 1fr);
@@ -243,7 +237,6 @@
             }
         }
 
-        /* MOBILE */
         @media (max-width: 600px) {
             header {
                 padding: 18px 5%;
@@ -308,7 +301,8 @@
         SPLATTER <span>GRAPHICS</span>
     </div>
 
-    <a href="https://splattergraphics0-bot.github.io/SG-PORTFOLIO/" class="back-btn">
+    <!-- DIRECT LINK TO MAIN PORTFOLIO -->
+    <a href="https://splattergraphics0-bot.github.io/SG-PORTFOLIO/index.html" class="back-btn">
         ← Back to Portfolio
     </a>
 </header>
@@ -507,15 +501,15 @@
     </div>
 
     <!-- 17 -->
-<div class="design-card" onclick="openModal(this)">
-    <div class="image-wrap">
-        <img src="https://raw.githubusercontent.com/splattergraphics0-bot/SG-PORTFOLIO/main/T-SHIRTS/can%27t.png.png" alt="Stay Strong">
+    <div class="design-card" onclick="openModal(this)">
+        <div class="image-wrap">
+            <img src="https://raw.githubusercontent.com/splattergraphics0-bot/SG-PORTFOLIO/main/T-SHIRTS/can%27t.png.png" alt="Stay Strong">
+        </div>
+        <div class="design-info">
+            <div class="number">17 / DESIGN</div>
+            <h2>Stay Strong</h2>
+        </div>
     </div>
-    <div class="design-info">
-        <div class="number">17 / DESIGN</div>
-        <h2>Stay Strong</h2>
-    </div>
-</div>
 
     <!-- 18 -->
     <div class="design-card" onclick="openModal(this)">
@@ -553,7 +547,6 @@
 </main>
 
 
-<!-- MODAL -->
 <div class="modal" id="imageModal" onclick="closeModal(event)">
     <div class="modal-content">
         <button class="close" onclick="closeModal()">×</button>
